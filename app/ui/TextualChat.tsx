@@ -93,7 +93,7 @@ const TextualChat = () => {
 			<CardHeader>
 				<CardTitle>Chat</CardTitle>
 				<CardDescription>
-					Ask me anything about your day, I'll try to help you out.
+					Ask me anything about your day, I&apos;ll try to help you out.
 				</CardDescription>
 			</CardHeader>
 			<hr className='mx-6' />
