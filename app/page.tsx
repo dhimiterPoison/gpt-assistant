@@ -30,6 +30,7 @@ import {
 	XIcon,
 } from '@/components/lib/icons';
 import VideoUpload from './ui/VideoUpload';
+import FinancesWidget from './ui/FinancesWidget';
 
 const statuses = [
 	{
@@ -90,11 +91,12 @@ const outputActions : Action[] = [
 
 export default function Component() {
 	return (
-		<main className='h-full grid grid-cols-3 grid-rows-2 overflow-auto'>
+		<main className='h-full grid grid-cols-2 md:grid-cols-3 grid-rows-4 md:grid-rows-2 overflow-auto'>
 			<section className='col-span-1 row-span-3 flex flex-col p-6 gap-6'>
-				<VideoUpload></VideoUpload>
 				<TextualChat></TextualChat>
+				<FinancesWidget></FinancesWidget>
 			</section>
+			{/* output should be expanded only when there is something to show */}
 			<section className='col-start-2 row-span-3 p-6 ' id='output'>
 				<Card className='h-full overflow-y-auto'>
 					<CardHeader>
@@ -182,7 +184,7 @@ export default function Component() {
 					</CardFooter>
 				</Card>
 			</section>
-			<section className='col-start-3 row-span-3 p-6' id='events'>
+			<section className='col-start-1 row-span-4 col-span-2 md:col-start-3 md:row-span-3 md:col-span-1 p-6' id='events'>
 				<Card className='h-full'>
 					<CardHeader>
 						<CardTitle>Agenda</CardTitle>

@@ -27,13 +27,16 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@radix-ui/react-separator';
 import Image from 'next/image';
 import ChatIllustration from '@/public/illustrations/chat.svg';
+import { CameraIcon, UploadIcon } from '@radix-ui/react-icons';
+import { MicrophoneIcon } from '@/components/lib/icons';
+import { useChat} from 'ai/react';
 
 type Message = {
 	role: 'user' | 'gpt';
 	message: string;
 };
 const TextualChat = () => {
-	const [messages, setMessages] = React.useState<Message[]>([
+	// const [messages, setMessages] = React.useState<Message[]>([
 		// {
 		// 	"role": "user",
 		// 	"message": "hey brother"
@@ -42,7 +45,8 @@ const TextualChat = () => {
 		// 	"role": "gpt",
 		// 	"message": "Hello! How can I assist you today?"
 		// }
-	]);
+	// ]);
+	const { messages, handleSubmit, input, handleInputChange } = useChat();
 
 	const formSchema = z.object({
 		question: z.string(),
@@ -62,10 +66,10 @@ const TextualChat = () => {
 		if (values.question.trim() === '') return;
 
 		//TODO: set loading state
-		setMessages((messages) => [
-			...messages,
-			{ role: 'user', message: values.question },
-		]);
+		// setMessages((messages) => [
+		// 	...messages,
+		// 	{ role: 'user', message: values.question },
+		// ]);
 		//send message to backend
 		const response = await fetch('/api/chat', {
 			method: 'POST',
@@ -77,10 +81,10 @@ const TextualChat = () => {
 
 		const data = await response.json();
 		console.log('data', data);
-		setMessages((messages) => [
-			...messages,
-			{ role: 'gpt', message: data?.answer },
-		]);
+		// setMessages((messages) => [
+		// 	...messages,
+		// 	{ role: 'gpt', message: data?.answer },
+		// ]);
 
 		//reset form
 		form.reset();
@@ -112,7 +116,7 @@ const TextualChat = () => {
 								<span className='font-bold uppercase text-xs'>
 									{message.role}
 								</span>
-								{message.message}
+								{message.content}
 							</div>
 						</div>
 					);
@@ -127,10 +131,36 @@ const TextualChat = () => {
 					</div>
 				) : null}
 			</div>
-			<CardContent className='h-full flex flex-col items-stretch justify-end content-end p-6 '>
+			<CardContent className='flex flex-col items-stretch justify-end content-end p-6 '>
+				<div className='flex gap-6 w-full justify-between  overflow-hidden pb-4'>
+					<div className='flex flex-col items-center justify-center rounded-xl'>
+						<UploadIcon className='h-8 w-8 text-gray-400' />
+						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
+							Upload
+						</Button>
+					</div>
+					<div className='flex flex-col items-center justify-center rounded-xl  '>
+						<CameraIcon className='h-8 w-8 text-gray-400' />
+						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
+							Live
+						</Button>
+					</div>
+					<div className='flex flex-col items-center justify-center rounded-xl  '>
+						<MicrophoneIcon className="h-8 w-8 text-gray-400" />
+						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
+							Audio
+						</Button>
+					</div>
+				</div>
+				<div className='flex items-center gap-4'>
+					<div className='h-[1px] border border-gray-400 w-full my-2'></div>
+					or
+					<div className='h-[1px] border border-gray-400 w-full my-2'></div>
+				</div>
 				<Form {...form}>
 					<form
-						onSubmit={form.handleSubmit(onSubmit)}
+						// onSubmit={form.handleSubmit(onSubmit)}
+						onSubmit={handleSubmit}
 						className='justify-self-end space-y-8'
 					>
 						<FormField
@@ -144,6 +174,8 @@ const TextualChat = () => {
 											<Input
 												placeholder='Example: I want to eat healthier'
 												{...field}
+												value={input}
+												onChange={handleInputChange}
 											/>
 											<Button type='submit' size='icon' className='px-2'>
 												<svg
