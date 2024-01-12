@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Link from 'next/link';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -64,6 +65,7 @@ export default function RootLayout({
 					</nav>
 				</header>
 				{children}
+				<Analytics></Analytics>
 			</body>
 		</html>
 	);

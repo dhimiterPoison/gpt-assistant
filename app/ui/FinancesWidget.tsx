@@ -19,7 +19,7 @@ const FinancesWidget = () => {
 						<EnterFullScreenIcon></EnterFullScreenIcon>
 					</Button>
 				</div>
-				<CardDescription>You're doing great! Keep it up!</CardDescription>
+				<CardDescription>You&apos;re doing great! Keep it up!</CardDescription>
 			</CardHeader>
 			<CardContent className='flex flex-col items-center justify-center p-6'>
 				<div className='finances-bar flex gap-1 w-full first:rounded-tl-xl even:rounded-r-xl even:bg-black'>
