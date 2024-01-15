@@ -132,7 +132,7 @@ const TextualChat = () => {
 				) : null}
 			</div>
 			<CardContent className='flex flex-col items-stretch justify-end content-end p-6 '>
-				<div className='flex gap-6 w-full justify-between  overflow-hidden pb-4'>
+				<div className='flex gap-6 w-full justify-evenly  overflow-hidden pb-4'>
 					<div className='flex flex-col items-center justify-center rounded-xl'>
 						<UploadIcon className='h-8 w-8 text-gray-400' />
 						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
