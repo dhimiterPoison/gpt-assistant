@@ -10,15 +10,15 @@ import {
 	CardContent,
 	Card,
 	CardFooter,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import LandingPage from './ui/LandingPage';
-import ModernLanding from './ui/ModernLanding';
+} from '@/app/components/ui/card';
+import { Button } from '@/app/components/ui/button';
+import { Input } from '@/app/components/ui/input';
+import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
+import LandingPage from './components/LandingPage';
+import ModernLanding from './components/ModernLanding';
 
 export default function Component() {
-	return <ModernLanding></ModernLanding>;
+	return <div>Dashboard</div>;
 }
 
 function FlagIcon(props: any) {

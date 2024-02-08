@@ -1,5 +1,5 @@
-import { SettingsIcon, TickIcon, XIcon } from '@/components/lib/icons';
-import { Button } from '@/components/ui/button';
+import { SettingsIcon, TickIcon, XIcon } from '@/lib/icons';
+import { Button } from '@/app/components/ui/button';
 import {
 	Card,
 	CardContent,
@@ -7,7 +7,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from '@/components/ui/card';
+} from '@/app/components/ui/card';
 import { ArchiveIcon } from '@radix-ui/react-icons';
 import React from 'react';
 

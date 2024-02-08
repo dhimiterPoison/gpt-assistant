@@ -1,10 +1,10 @@
 'use client';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/app/components/ui/button';
 import { ArrowDownIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-export default function Home() {
+export default function ModernLanding() {
 	const plane = useRef<HTMLInputElement>(null);
 
 	const maxRotate = 45;
@@ -73,8 +73,8 @@ function Text3d({
 	primary,
 	secondary,
 }: {
-	primary: String;
-	secondary: String;
+	primary: string;
+	secondary: string;
 }) {
 	return (
 		<div className='textContainer '>

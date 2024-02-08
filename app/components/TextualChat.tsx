@@ -11,24 +11,24 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/components/ui/form';
-import { Button } from '@/components/ui/button';
+} from '@/app/components/ui/form';
+import { Button } from '@/app/components/ui/button';
 import {
 	Card,
 	CardContent,
 	CardDescription,
 	CardHeader,
 	CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+} from '@/app/components/ui/card';
+import { Input } from '@/app/components/ui/input';
 import React from 'react';
-import { ArrowIcon } from '@/components/lib/icons';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ArrowIcon } from '@/lib/icons';
+import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
 import { Separator } from '@radix-ui/react-separator';
 import Image from 'next/image';
 import ChatIllustration from '@/public/illustrations/chat.svg';
 import { CameraIcon, UploadIcon } from '@radix-ui/react-icons';
-import { MicrophoneIcon } from '@/components/lib/icons';
+import { MicrophoneIcon } from '@/lib/icons';
 import { useChat} from 'ai/react';
 
 type Message = {
