@@ -32,6 +32,15 @@ export const primaryRoutes = [
 	},
 ];
 
+export const secondaryRoutes = [
+	{
+		title: 'Inspiration',
+		label: '2',
+		icon: Wind,
+		variant: 'ghost',
+		path: '/inspiration',
+	}
+];
 
 const accounts = [{
 	label: "Dhimiter Helmi",
@@ -77,7 +86,13 @@ const Sidebar = ({ isCollapsed }: SidebarProps) => {
 				isCollapsed={false}
 				title=''
 			/>
-			
+			<Separator />
+			<Nav
+				// @ts-ignore COME ON
+				links={secondaryRoutes}
+				isCollapsed={false}
+				title=''
+			/>
 			</div>
 			<div
 				className={cn(
