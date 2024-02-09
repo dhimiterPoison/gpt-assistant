@@ -1,17 +1,6 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { set, useForm } from 'react-hook-form';
-import * as z from 'zod';
-import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from '@/app/components/ui/form';
+import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
 import { Button } from '@/app/components/ui/button';
 import {
 	Card,
@@ -20,16 +9,23 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/app/components/ui/card';
+import {
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage
+} from '@/app/components/ui/form';
 import { Input } from '@/app/components/ui/input';
-import React from 'react';
-import { ArrowIcon } from '@/lib/icons';
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
-import { Separator } from '@radix-ui/react-separator';
-import Image from 'next/image';
-import ChatIllustration from '@/public/illustrations/chat.svg';
-import { CameraIcon, UploadIcon } from '@radix-ui/react-icons';
 import { MicrophoneIcon } from '@/lib/icons';
-import { useChat} from 'ai/react';
+import ChatIllustration from '@/public/illustrations/chat.svg';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { CameraIcon, UploadIcon } from '@radix-ui/react-icons';
+import { useChat } from 'ai/react';
+import Image from 'next/image';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
 
 type Message = {
 	role: 'user' | 'gpt';

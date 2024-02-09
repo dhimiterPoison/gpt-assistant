@@ -1,22 +1,13 @@
 'use client'
-import DragAndDropHandle from '@/components/ui/DragAndDropHandle';
-import { TaskContainerInterface, TaskInterface } from '@/lib/interfaces';
-import { ReactNode } from 'react';
-import Draggable from 'react-draggable';
-import TaskContainer from './TaskContainer';
-import Task from './Task';
+import { TaskInterface } from '@/lib/interfaces';
 import { arrayToSort } from '@/lib/mockdata';
+import Task from './Task';
+import TaskContainer from './TaskContainer';
 
-
-
-
-
-
-const sorted = arrayToSort.sort((a, b) => b.impact - a.impact || b.ease - a.ease);
+const sorted = arrayToSort.toSorted((a, b) => b.impact - a.impact || b.ease - a.ease);
 const TasksPage = () => {
 
   console.log(sorted);
-
 
   return (
     <div className='flex w-full gap-4'>
