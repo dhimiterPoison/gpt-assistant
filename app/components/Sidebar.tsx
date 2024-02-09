@@ -2,6 +2,7 @@
 import { AccountSwitcher } from '@/app/components/AccountSwitcher';
 import { Nav } from '@/app/components/ui/nav';
 import { Separator } from '@/components/ui/separator';
+import { account, accountActions } from '@/lib/mockdata';
 import { cn } from '@/lib/utils';
 import { EyeClosedIcon } from '@radix-ui/react-icons';
 import { ArrowLeftToLine, ArrowRightToLine, CircleDollarSign, LayoutDashboard, ListTodo, MoonStar, Settings, SquareUser, Target, Wind } from 'lucide-react';
@@ -22,7 +23,9 @@ export const primaryRoutes = [
 		icon: SquareUser,
 		variant: 'ghost',
 		path: '/identity',
-	},
+	}
+];
+export const secondaryRoutes = [
 	{
 		title: 'Projects',
 		label: '4',
@@ -46,7 +49,7 @@ export const primaryRoutes = [
 	},
 ];
 
-export const secondaryRoutes = [
+export const tertiaryRoutes = [
 	{
 		title: 'Inspiration',
 		label: '2',
@@ -55,26 +58,6 @@ export const secondaryRoutes = [
 		path: '/inspiration',
 	}
 ];
-
-const accounts = [{
-	label: "Dhimiter Helmi",
-	email: "dhimiter.helmi@gmail.com",
-	icon: (
-		<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-			<title>DhimRealm</title>
-			<path d="M24 22.525H0l12-21.05 12 21.05z" fill="currentColor" />
-		</svg>
-	),
-}, {
-	label: "Alicia Koch",
-	email: "alicia@example.com",
-	icon: (
-		<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-			<title>Vercel</title>
-			<path d="M24 22.525H0l12-21.05 12 21.05z" fill="currentColor" />
-		</svg>
-	),
-},];
 
 interface SidebarProps {
 	isCollapsed: boolean;
@@ -107,6 +90,13 @@ const Sidebar = ({ isCollapsed }: SidebarProps) => {
 					isCollapsed={isCollapsed}
 					title=''
 				/>
+				<Separator />
+				<Nav
+					// @ts-ignore COME ON
+					links={tertiaryRoutes}
+					isCollapsed={isCollapsed}
+					title=''
+				/>
 			</div>
 			<div className='mt-auto'>
 				<div
@@ -117,8 +107,8 @@ const Sidebar = ({ isCollapsed }: SidebarProps) => {
 				>
 					<AccountSwitcher
 						isCollapsed={isCollapsed}
-						accounts={accounts}
-					// actions={accountActions}
+						account={account}
+						actions={accountActions}
 					/>
 				</div><Nav
 					links={[
