@@ -21,7 +21,8 @@ interface NavProps {
     label?: string
     icon: LucideIcon
     variant: "ghost" | "link" | "default" | "destructive" | "outline" | "secondary",
-    path: string
+    path: string,
+    className?: string
   }[]
 }
 
@@ -32,15 +33,17 @@ export function Nav({ className, links, isCollapsed, title }: Readonly<NavProps>
   return (
     <div
       data-collapsed={isCollapsed}
-      className={cn('group flex flex-col py-4 data-[collapsed=true]:py-2', className)}
+      className={cn('group flex flex-col py-4 data-[collapsed=true]:py-2')}
     >
       {title ? <h4 className="font-semibold text-sm px-4 pt-4 pb-2">
         {title}
       </h4> : null}
-      <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
+      <nav className={cn("grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2",
+        className
+      )}>
         {links.map((link, index) => {
           const isActive = link.path?.startsWith(`/${currentRoute}`);
-          console.log('isActive', {isActive, pathLink: link.path, currentRoute})
+          console.log('isActive', { isActive, pathLink: link.path, currentRoute })
           return isCollapsed ? (
             <Tooltip key={link.path} delayDuration={0}>
               <TooltipTrigger asChild>
@@ -50,7 +53,7 @@ export function Nav({ className, links, isCollapsed, title }: Readonly<NavProps>
                   className={cn(
                     buttonVariants({ variant: link.variant, size: "icon" }),
                     "h-9 w-9",
-                      "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white",
+                    "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white",
                     "[is-active]:bg-primary dark:text-white dark:hover:bg-primary dark:hover:text-white"
                   )}
                 >
@@ -74,18 +77,19 @@ export function Nav({ className, links, isCollapsed, title }: Readonly<NavProps>
               className={cn(
                 buttonVariants({ variant: link.variant, size: "sm" }),
                 link.variant === "default" &&
-                  "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                "justify-start"
+                "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
+                "justify-start",
+                link.className
               )}
             >
-              <link.icon className="mr-2 h-4 w-4" />
+              <link.icon className="mr-2 h-4 w-4 shrink-0" />
               {link.title}
               {link.label && (
                 <span
                   className={cn(
                     "ml-auto",
                     link.variant === "default" &&
-                      "text-background dark:text-white"
+                    "text-background dark:text-white"
                   )}
                 >
                   {link.label}

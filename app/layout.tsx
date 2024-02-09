@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import './globals.css';
 import Sidebar from './components/Sidebar';
 import RouteTitle from './components/RouteTitle';
+import { TooltipProvider } from './components/ui/tooltip';
 
 const inter = Inter({ subsets: ['latin'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -26,6 +27,7 @@ export default function RootLayout({
 			<body
 				className={`${inter.className} flex w-full h-screen overflow-hidden`}
 			>
+				<TooltipProvider>
 				{!isLogged ? (
 					<LandingPage />
 				) : (
@@ -37,6 +39,7 @@ export default function RootLayout({
 						</div>
 					</>
 				)}
+				</TooltipProvider>
 
 				<Analytics></Analytics>
 			</body>

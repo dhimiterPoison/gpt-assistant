@@ -4,7 +4,7 @@ import { Nav } from '@/app/components/ui/nav';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { EyeClosedIcon } from '@radix-ui/react-icons';
-import { LayoutDashboard, ListTodo, Target, Wind } from 'lucide-react';
+import { ArrowLeftToLine, ArrowRightToLine, CircleDollarSign, LayoutDashboard, ListTodo, MoonStar, Settings, SquareUser, Target, Wind } from 'lucide-react';
 import { Manrope } from 'next/font/google';
 import Link from 'next/link';
 
@@ -15,6 +15,13 @@ export const primaryRoutes = [
 		icon: EyeClosedIcon,
 		variant: 'ghost',
 		path: '/dashboard',
+	},
+	{
+		title: 'My Identity',
+		label: '',
+		icon: SquareUser,
+		variant: 'ghost',
+		path: '/identity',
 	},
 	{
 		title: 'Projects',
@@ -29,6 +36,13 @@ export const primaryRoutes = [
 		icon: ListTodo,
 		variant: 'ghost',
 		path: '/tasks',
+	},
+	{
+		title: 'Finances',
+		label: '1',
+		icon: CircleDollarSign,
+		variant: 'ghost',
+		path: '/finances',
 	},
 ];
 
@@ -70,7 +84,7 @@ const manrope = Manrope({ subsets: ['latin'] });
 
 const Sidebar = ({ isCollapsed }: SidebarProps) => {
 	return (
-		<div className={`flex h-full w-60 flex-col transition-all duration-300 ease-in-out shadow ${manrope.className}`}>
+		<div className={`flex h-full ${isCollapsed ? 'w-20' : ' w-60'} flex-col transition-all duration-300 ease-in-out shadow ${manrope.className}`}>
 			<div className='logo flex items-center p-4'>
 				<Link href="/" className='flex flex-col'>
 					<span className='text-2xl font-semibold'>Self</span>
@@ -80,32 +94,62 @@ const Sidebar = ({ isCollapsed }: SidebarProps) => {
 				{/* <Image src={DWHubLogo} alt="DW Hub Logo" className=""/> */}
 			</div>
 			<div className='my-auto'>
-			<Nav
-				// @ts-ignore COME ON
-				links={primaryRoutes}
-				isCollapsed={false}
-				title=''
-			/>
-			<Separator />
-			<Nav
-				// @ts-ignore COME ON
-				links={secondaryRoutes}
-				isCollapsed={false}
-				title=''
-			/>
-			</div>
-			<div
-				className={cn(
-					'flex h-[52px] items-center justify-center',
-					isCollapsed ? 'h-[52px]' : 'px-2'
-				)}
-			>
-				<AccountSwitcher
+				<Nav
+					// @ts-ignore COME ON
+					links={primaryRoutes}
 					isCollapsed={isCollapsed}
-					accounts={accounts}
-				// actions={accountActions}
+					title=''
+				/>
+				<Separator />
+				<Nav
+					// @ts-ignore COME ON
+					links={secondaryRoutes}
+					isCollapsed={isCollapsed}
+					title=''
 				/>
 			</div>
+			<div className='mt-auto'>
+				<div
+					className={cn(
+						'flex h-[52px] items-center justify-center',
+						isCollapsed ? 'h-[52px]' : 'px-2'
+					)}
+				>
+					<AccountSwitcher
+						isCollapsed={isCollapsed}
+						accounts={accounts}
+					// actions={accountActions}
+					/>
+				</div><Nav
+					links={[
+						{
+							title: 'Collapse',
+							label: '',
+							icon: isCollapsed ? ArrowRightToLine : ArrowLeftToLine,
+							variant: 'outline',
+							path: '/theme',
+							className: 'col-span-2'
+						}, {
+							title: 'Settings',
+							label: '',
+							icon: Settings,
+							variant: 'outline',
+							path: '/settings',
+						},
+						{
+							title: 'Dark',
+							label: '',
+							icon: MoonStar,
+							variant: 'outline',
+							path: '/theme',
+						}]}
+					isCollapsed={isCollapsed}
+					title=''
+					className={isCollapsed ? '' : 'grid-cols-2'}
+				/>
+			</div>
+			{/* <Separator /> */}
+
 		</div>
 	);
 };
