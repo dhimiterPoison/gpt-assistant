@@ -5,7 +5,8 @@ import { useSelectedLayoutSegment } from 'next/navigation'
  
 
 const RouteTitle = () => {
-	const segment = useSelectedLayoutSegment()
+	let segment = useSelectedLayoutSegment() || '';
+	segment = segment.replace(/-/g, ' ');
 	console.log(segment)
   return (
 	<h2 className='font-semibold text-xl capitalize'>{segment}</h2>

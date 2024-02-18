@@ -5,7 +5,7 @@ import { Separator } from '@/components/ui/separator';
 import { account, accountActions } from '@/lib/mockdata';
 import { cn } from '@/lib/utils';
 import { EyeClosedIcon } from '@radix-ui/react-icons';
-import { ArrowLeftToLine, ArrowRightToLine, CircleDollarSign, LayoutDashboard, ListTodo, MoonStar, Settings, SquareUser, Target, Wind } from 'lucide-react';
+import { ArrowLeftToLine, ArrowRightToLine, CircleDollarSign, LayoutDashboard, ListTodo, MoonStar, Notebook, Settings, SquareUser, Target, Wind } from 'lucide-react';
 import { Manrope } from 'next/font/google';
 import Link from 'next/link';
 
@@ -23,6 +23,13 @@ export const primaryRoutes = [
 		icon: SquareUser,
 		variant: 'ghost',
 		path: '/identity',
+	},
+	{
+		title: 'My Path',
+		label: '',
+		icon: Notebook,
+		variant: 'ghost',
+		path: '/my-path',
 	}
 ];
 export const secondaryRoutes = [

@@ -25,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${inter.className} flex w-full h-screen overflow-hidden`}
+				className={`${inter.className} flex w-full h-[100svh] overflow-hidden`}
 			>
 				<TooltipProvider>
 				{!isLogged ? (

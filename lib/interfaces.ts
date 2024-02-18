@@ -10,3 +10,13 @@ export interface TaskInterface {
 	ease: 1 | 2 | 3;
 	quest: TaskContainerInterface['variant'];
 }
+
+
+export interface HistoryEntry {
+	id: number;
+	date: Date;
+	title: string;
+	tags: string[];
+	cover: string;
+	type: 'video' | 'audio' | 'text' | 'handwritten';
+}
