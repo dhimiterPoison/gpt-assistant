@@ -11,7 +11,7 @@ const TitleBar = () => {
 		// 	<span className='text-sm'>your life at a glance</span>
 		// </Link>
 		// </div>
-		<div className='w-full flex p-4 items-center'>
+		<div className='w-full flex p-4 items-center lg:hidden'>
 			<div className='w-8 h-8'>
 
 			</div>

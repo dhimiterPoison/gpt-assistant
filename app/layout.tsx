@@ -2,12 +2,12 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import LandingPage from './components/LandingPage';
-import './globals.css';
-import Sidebar from './components/Sidebar';
+import MobileNavigation from './components/MobileNavigation';
 import RouteTitle from './components/RouteTitle';
-import { TooltipProvider } from './components/ui/tooltip';
+import Sidebar from './components/Sidebar';
 import TitleBar from './components/TitleBar';
-import MobileNavbar from './components/MobileNavbar';
+import { TooltipProvider } from './components/ui/tooltip';
+import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -27,22 +27,22 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${inter.className} flex flex-col lg:flex-row w-full h-[100svh] overflow-hidden`}
+				className={`${inter.className} relative flex flex-col lg:flex-row w-full h-[100svh] overflow-hidden`}
 			>
 				<TooltipProvider>
-				{!isLogged ? (
-					<LandingPage />
-				) : (
-					<>
-						<Sidebar isCollapsed={false} />
-						<TitleBar />
-						<div className="router-content p-4 flex flex-col gap-4 w-full">
-							<RouteTitle />
-							{children}
-						</div>
-						<MobileNavbar />
-					</>
-				)}
+					{!isLogged ? (
+						<LandingPage />
+					) : (
+						<>
+							<Sidebar isCollapsed={false} />
+							<TitleBar />
+							<div className="router-content p-4 flex flex-col gap-4 w-full">
+								<RouteTitle />
+								{children}
+							</div>
+							<MobileNavigation />
+						</>
+					)}
 				</TooltipProvider>
 
 				<Analytics></Analytics>
