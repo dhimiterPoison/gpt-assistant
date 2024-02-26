@@ -74,7 +74,7 @@ const manrope = Manrope({ subsets: ['latin'] });
 
 const Sidebar = ({ isCollapsed }: SidebarProps) => {
 	return (
-		<div className={`flex h-full ${isCollapsed ? 'w-20' : ' w-60'} flex-col transition-all duration-300 ease-in-out shadow ${manrope.className}`}>
+		<div className={`hidden lg:flex h-full ${isCollapsed ? 'w-20' : ' w-60'} flex-col transition-all duration-300 ease-in-out shadow ${manrope.className}`}>
 			<div className='logo flex items-center p-4'>
 				<Link href="/" className='flex flex-col'>
 					<span className='text-2xl font-semibold'>Self</span>

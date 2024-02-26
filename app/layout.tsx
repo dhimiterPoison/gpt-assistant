@@ -6,6 +6,8 @@ import './globals.css';
 import Sidebar from './components/Sidebar';
 import RouteTitle from './components/RouteTitle';
 import { TooltipProvider } from './components/ui/tooltip';
+import TitleBar from './components/TitleBar';
+import MobileNavbar from './components/MobileNavbar';
 
 const inter = Inter({ subsets: ['latin'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -25,7 +27,7 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${inter.className} flex w-full h-[100svh] overflow-hidden`}
+				className={`${inter.className} flex flex-col lg:flex-row w-full h-[100svh] overflow-hidden`}
 			>
 				<TooltipProvider>
 				{!isLogged ? (
@@ -33,10 +35,12 @@ export default function RootLayout({
 				) : (
 					<>
 						<Sidebar isCollapsed={false} />
+						<TitleBar />
 						<div className="router-content p-4 flex flex-col gap-4 w-full">
 							<RouteTitle />
 							{children}
 						</div>
+						<MobileNavbar />
 					</>
 				)}
 				</TooltipProvider>
