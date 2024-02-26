@@ -4,10 +4,10 @@ import { arrayToSort } from '@/lib/mockdata';
 import Task from './Task';
 import TaskContainer from './TaskContainer';
 
-const sorted = arrayToSort.toSorted((a, b) => b.impact - a.impact || b.ease - a.ease);
+// const sorted = arrayToSort.toSorted((a, b) => b.impact - a.impact || b.ease - a.ease);
 const TasksPage = () => {
 
-  console.log(sorted);
+  // console.log(sorted);
 
   
   return (
