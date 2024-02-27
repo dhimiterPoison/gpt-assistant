@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import ProfilePic from '@/public/images/profile.jpg'
+import { MonitorUp } from 'lucide-react'
 
 const TitleBar = () => {
 	return (
@@ -12,8 +13,8 @@ const TitleBar = () => {
 		// </Link>
 		// </div>
 		<div className='w-full flex p-4 items-center lg:hidden'>
-			<div className='w-8 h-8'>
-
+			<div className='w-8 h-8 flex items-center justify-center'>
+				<MonitorUp className='w-6 h-6' strokeWidth={1}/>
 			</div>
 			<Link href='/' className=' mx-auto'>
 				<div className='logo text-center'>

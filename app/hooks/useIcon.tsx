@@ -3,17 +3,18 @@ import { TextIcon, Video, VideoIcon } from 'lucide-react';
 import React from 'react'
 
 const useIcon = (icon: string) => {
+	const className = 'w-4 h-4';
 	switch (icon) {
 		case 'video':
-			return <Video />;
+			return <Video className={className} />;
 		case 'audio':
-			return <MicrophoneIcon />;
+			return <MicrophoneIcon  className={className} />;
 		case 'text':
-			return <TextIcon />;
+			return <TextIcon  className={className} />;
 		case 'handwritten':
-			return <HandwriteIcon />;
+			return <HandwriteIcon  className={className} />;
 		default:
-			return <TextIcon />;
+			return <TextIcon  className={className} />;
 	}
 }
 

@@ -3,7 +3,7 @@ import { it, enUS, es } from 'date-fns/locale';
 
 export const formatDate = (date: Date) => {
 	return format(date, 'eeee dd MMMM', { locale: enUS });
-	//=> "Today is a Sunday"
+	//=> "Sunday 18 February"
 };
 
 formatDistance(subDays(new Date(), 3), new Date(), { addSuffix: true });

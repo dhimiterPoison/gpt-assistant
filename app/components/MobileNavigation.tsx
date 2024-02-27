@@ -16,7 +16,7 @@ const routes = [
 		id: 2,
 		title: 'My Identity',
 		label: '',
-		icon: <SquareUser  strokeWidth={1.5}/>,
+		icon: <SquareUser strokeWidth={1.5} />,
 		variant: 'ghost',
 		path: '/identity',
 	},
@@ -32,7 +32,7 @@ const routes = [
 		id: 3,
 		title: 'My Path',
 		label: '',
-		icon: <Notebook strokeWidth={1.5}/>,
+		icon: <Notebook strokeWidth={1.5} />,
 		variant: 'ghost',
 		path: '/my-path',
 	}
@@ -51,23 +51,24 @@ const MobileNavigation = () => {
 	}, [params, pathname]);
 
 	return (
-		
-		<div className='mobile-nav fixed bottom-2 px-2 w-full'><div className='z-50 flex w-full h-16 items-center justify-evenly self-center rounded-xl bg-white border  p-2 shadow-sm lg:hidden '>
-			{routes.map((route) => {
-				const isActive = activeRoute === route.path;
-				const className = `w-6 h-6 ${activeRoute.startsWith(route.path) ? '' : ''}`
-				// ? (route.id == 2 || route.id == 4 ? 'fill-primary' : 'text-primary')
-				// : 'text-base-content';
 
-				let icon = React.cloneElement(route.icon, { className });
-				return (
-					<MobileNavButton key={route.id} path={route.path} isActive>
-						{icon}
-						<span className='text-sm'>{route.title}</span>
-					</MobileNavButton>
-				);
-			})}
-		</div></div>
+		<div className='mobile-nav fixed bottom-2 px-2 w-full'>
+			<div className='z-50 flex w-full h-16 items-center justify-evenly self-center rounded-xl bg-white border  p-2 shadow-sm lg:hidden '>
+				{routes.map((route) => {
+					const isActive = activeRoute === route.path;
+					const className = `w-6 h-6 ${activeRoute.startsWith(route.path) ? '' : ''}`
+					// ? (route.id == 2 || route.id == 4 ? 'fill-primary' : 'text-primary')
+					// : 'text-base-content';
+
+					let icon = React.cloneElement(route.icon, { className });
+					return (
+						<MobileNavButton key={route.id} path={route.path} isActive>
+							{icon}
+							<span className='text-sm'>{route.title}</span>
+						</MobileNavButton>
+					);
+				})}
+			</div></div>
 	);
 };
 

@@ -19,4 +19,5 @@ export interface HistoryEntry {
 	tags: string[];
 	cover: string;
 	type: 'video' | 'audio' | 'text' | 'handwritten';
+	slug: string;
 }

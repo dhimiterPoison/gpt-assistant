@@ -36,7 +36,7 @@ export default function RootLayout({
 						<>
 							<Sidebar isCollapsed={false} />
 							<TitleBar />
-							<div className="router-content p-4 flex flex-col gap-4 w-full">
+							<div className="router-content p-4 flex flex-col gap-4 w-full h-full mb-18 isco funkytoverflow-y-scroll">
 								<RouteTitle />
 								{children}
 							</div>
@@ -44,7 +44,6 @@ export default function RootLayout({
 						</>
 					)}
 				</TooltipProvider>
-
 				<Analytics></Analytics>
 			</body>
 		</html>
