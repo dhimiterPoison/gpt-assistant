@@ -26,7 +26,7 @@ const routes = [
 		label: '',
 		icon: <EyeClosedIcon />,
 		variant: 'ghost',
-		path: '/dashboard',
+		path: '/',
 	},
 	{
 		id: 3,
@@ -52,7 +52,7 @@ const MobileNavigation = () => {
 
 	return (
 
-		<div className='mobile-nav fixed bottom-2 px-2 w-full'>
+		<div className='mobile-nav sticky bottom-2 px-2 w-full lg:hidden'>
 			<div className='z-50 flex w-full h-16 items-center justify-evenly self-center rounded-xl bg-white border  p-2 shadow-sm lg:hidden '>
 				{routes.map((route) => {
 					const isActive = activeRoute === route.path;

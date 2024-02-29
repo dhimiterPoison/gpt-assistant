@@ -13,12 +13,97 @@ import {
 } from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarImage,
+} from '@/app/components/ui/avatar';
 import LandingPage from './components/LandingPage';
 import ModernLanding from './components/ModernLanding';
+import { account } from '@/lib/mockdata';
+import { MicrophoneIcon } from '@/lib/icons';
 
 export default function Component() {
-	return <div>Dashboard</div>;
+	return (
+		<div className='h-full w-full'>
+			<h2 className='text-lg font-medium'>Hi {account.name}!</h2>
+			<span className=''>
+				here you have an overview of your current situation:
+			</span>
+			<div className=' flex h-full w-full flex-col gap-4 pt-4'>
+				<div className='h-1/2 w-full rounded-md bg-blue-200 p-4'>
+					Notes history
+					<ul className=''>
+						<li className='list-inside list-disc indent-8'>
+							video
+						</li>
+						<li className='list-inside list-disc indent-8'>
+							audio
+						</li>
+						<li className='list-inside list-disc indent-8'>text</li>
+						<li className='list-inside list-disc indent-8'>
+							handwritten
+						</li>
+					</ul>
+				</div>
+				<div className='flex w-full gap-4'>
+					<div className='h-24 w-1/2 rounded-md bg-green-200'></div>
+					<div className='h-24 w-1/2 rounded-md bg-green-200'></div>
+				</div>
+				<div className='h-60 w-full rounded-md bg-blue-200 p-4'>
+					Notes history
+					<ul className=''>
+						<li className='list-inside list-disc indent-8'>
+							video
+						</li>
+						<li className='list-inside list-disc indent-8'>
+							audio
+						</li>
+						<li className='list-inside list-disc indent-8'>text</li>
+						<li className='list-inside list-disc indent-8'>
+							handwritten
+						</li>
+					</ul>
+				</div>
+				<div className='h-screen w-full rounded-md bg-blue-200 p-4'>
+					Notes history
+					<ul className=''>
+						<li className='list-inside list-disc indent-8'>
+							video
+						</li>
+						<li className='list-inside list-disc indent-8'>
+							audio
+						</li>
+						<li className='list-inside list-disc indent-8'>text</li>
+						<li className='list-inside list-disc indent-8'>
+							handwritten
+						</li>
+					</ul>
+				</div>
+				<div className='h-screen w-full rounded-md bg-blue-200 p-4'>
+					Notes history
+					<ul className=''>
+						<li className='list-inside list-disc indent-8'>
+							video
+						</li>
+						<li className='list-inside list-disc indent-8'>
+							audio
+						</li>
+						<li className='list-inside list-disc indent-8'>text</li>
+						<li className='list-inside list-disc indent-8'>
+							handwritten
+						</li>
+					</ul>
+				</div>
+
+				<div className='fixed bottom-16 left-0 flex h-24 w-full justify-center'>
+					<Button className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-700 text-white hover:bg-blue-900'>
+						<MicrophoneIcon />
+					</Button>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 function FlagIcon(props: any) {

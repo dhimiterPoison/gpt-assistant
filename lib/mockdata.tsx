@@ -53,6 +53,8 @@ export const accountActions = [
 ];
 
 export const account = {
+	name: "Dhimiter",
+	surname: "Helmi",
 	label: "Dhimiter Helmi",
 	email: "dhimiter.helmi@gmail.com",
 	icon: (

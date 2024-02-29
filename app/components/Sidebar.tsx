@@ -15,7 +15,7 @@ export const primaryRoutes = [
 		label: '',
 		icon: EyeClosedIcon,
 		variant: 'ghost',
-		path: '/dashboard',
+		path: '/',
 	},
 	{
 		title: 'My Identity',

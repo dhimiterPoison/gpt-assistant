@@ -3,30 +3,36 @@ import { Input } from '../components/ui/input';
 import HistoryCard from './HistoryCard';
 import HistoryDetailView from './HistoryDetailView';
 
-
 const PathPage = () => {
-  console.log(new Date().toISOString());
-  return (
-    <div className='w-full h-full flex flex-col lg:flex-row gap-4'>
-      <div className='lg:w-1/2 rounded-lg shadow-sm p-4 h-2/3 lg:h-full flex flex-col gap-4'>
-        <div className=' flex flex-col gap-4 overflow-y-scroll h-3/4'>
-          {history.map((entry, index) => {
-            return <HistoryCard key={index} {...entry}></HistoryCard>
+	console.log(new Date().toISOString());
+	return (
+		<div className='flex h-full w-full flex-col gap-4 lg:flex-row'>
+			<div className='flex h-2/3 flex-col gap-4 rounded-lg p-4 shadow-sm lg:h-full lg:w-1/2'>
+				<div className=' flex h-3/4 flex-col gap-4 overflow-y-scroll'>
+					{history.map((entry, index) => {
+						return (
+							<HistoryCard key={index} {...entry}></HistoryCard>
+						);
+					})}
+				</div>
+				{/* <div className=' h-1/4 rounded-lg border p-4 shadow-sm'>
+					<span className='font-semibold'>Time machine</span>
+					<br />
+					<span className='text-sm'>
+						Check out a summary of your life for the selected time
+						period
+					</span>
+					<div className='grid grid-cols-[100px_1fr] items-center gap-4 p-4'>
+						From
+						<Input type='date' value={new Date().toString()} />
+						To
+						<Input type='date' />
+					</div>
+				</div> */}
+			</div>
+			<HistoryDetailView entry={history[0]} variant='split' />
+		</div>
+	);
+};
 
-          })}
-        </div>
-        <div className=' rounded-lg shadow-sm border p-4 h-1/4'>
-          <span className='font-semibold'>Time machine</span><br />
-          <span className='text-sm'>Check out a summary of your life for the selected time period</span>
-          <div className='p-4 gap-4 grid grid-cols-[100px_1fr] items-center'>
-            From<Input type='date' value={new Date().toString()} />
-            To<Input type='date' /></div>
-        </div>
-      </div>
-
-      <HistoryDetailView entry={history[0]} variant='split'/>
-    </div>
-  )
-}
-
-export default PathPage
+export default PathPage;

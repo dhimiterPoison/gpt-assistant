@@ -16,7 +16,7 @@ const HistoryDetail = ({ params }: { params: { slug: string } }) => {
 
 	return (
 		<div className='w-full h-full flex flex-col lg:flex-row gap-4'>
-			<div className='w-full lg:w-36 rounded-lg shadow-sm p-1 lg:h-full flex flex-row lg:flex-col gap-2 overflow-auto '>
+			<div className='w-full lg:w-36 rounded-lg p-1 lg:h-full flex flex-row lg:flex-col gap-2 overflow-auto lg:overflow-y-scroll '>
 				<span className='self-center text-sm lg:text-base flex gap-2 items-center'><History className='w-4 h-4' strokeWidth={1.5} /> Browse</span>
 				{history.map((entry, index) => {
 					return <HistoryCardSmall key={index} {...entry}></HistoryCardSmall>
