@@ -1,0 +1,33 @@
+{
+  "background_color": "#ffffff",
+  "description": "Dump your thoughts, ideas, and feelings in a safe place and let Self help you organizing your time so you can focus your energies more consciusly.",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "Self - glance",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Self",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "id": "0b4e3f93d41fce1caf2fc44afecc53549f718c6455754a9c",
+  "lang": "en",
+  "categories": [
+    "lifestyle",
+    "productivity",
+    "utilities"
+  ],
+  "display_override": [
+    "window-controls-overlay"
+  ]
+}

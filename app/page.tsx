@@ -2,30 +2,13 @@
  * v0 by Vercel.
  * @see https://v0.dev/t/fRXBRRrRqDT
  */
-import Link from 'next/link';
-import {
-	CardTitle,
-	CardDescription,
-	CardHeader,
-	CardContent,
-	Card,
-	CardFooter,
-} from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
-import { Input } from '@/app/components/ui/input';
-import {
-	Avatar,
-	AvatarFallback,
-	AvatarImage,
-} from '@/app/components/ui/avatar';
-import LandingPage from './components/LandingPage';
-import ModernLanding from './components/ModernLanding';
-import { account } from '@/lib/mockdata';
 import { MicrophoneIcon } from '@/lib/icons';
+import { account } from '@/lib/mockdata';
 
 export default function Component() {
 	return (
-		<div className='h-full w-full'>
+		<div className='h-full w-full px-2'>
 			<h2 className='text-lg font-medium'>Hi {account.name}!</h2>
 			<span className=''>
 				here you have an overview of your current situation:
@@ -97,11 +80,13 @@ export default function Component() {
 				</div>
 
 				<div className='fixed bottom-16 left-0 flex h-24 w-full justify-center'>
-					<Button className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-700 text-white hover:bg-blue-900'>
+					<Button type='button' title='Microphone - action button' className='flex h-20 w-20 items-center justify-center rounded-full bg-blue-700 shadow-lg text-white hover:bg-blue-900'>
 						<MicrophoneIcon />
 					</Button>
 				</div>
 			</div>
+			<div className='h-[7.5rem] opacity-0'></div>
+
 		</div>
 	);
 }

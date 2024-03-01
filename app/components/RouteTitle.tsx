@@ -9,7 +9,7 @@ const RouteTitle = () => {
 	segment = segment.replace(/-/g, ' ');
 	console.log(segment)
   return (
-	<h2 className='font-semibold text-xl capitalize'>{segment}</h2>
+	<h2 className={`font-semibold text-xl capitalize ${segment ?? 'pb-2'}`}>{segment}</h2>
   )
 }
 

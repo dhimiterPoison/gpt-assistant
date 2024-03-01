@@ -35,10 +35,14 @@ const routes = [
 		icon: <Notebook strokeWidth={1.5} />,
 		variant: 'ghost',
 		path: '/my-path',
-	}
+	},
 ];
 
-const MobileNavigation = () => {
+interface MobileNavProps {
+	type: 'floating' | 'anchor';
+}
+
+const MobileNavigation = ({ type }: MobileNavProps) => {
 	const [activeRoute, setActiveRoute] = useState('');
 
 	const pathname = usePathname();
@@ -50,25 +54,58 @@ const MobileNavigation = () => {
 		setActiveRoute(activeRoute);
 	}, [params, pathname]);
 
-	return (
+	if (type === 'floating') {
+		return (
+			<div className='mobile-nav fixed bottom-2 left-0 w-full bg-transparent px-2 lg:hidden'>
+				<div className='z-50 flex h-16 w-full items-center justify-evenly self-center rounded-xl border bg-white  p-2 shadow-sm lg:hidden '>
+					{routes.map((route) => {
+						const isActive = activeRoute === route.path;
+						const className = `w-6 h-6 ${activeRoute.startsWith(route.path) ? '' : ''}`;
+						// ? (route.id == 2 || route.id == 4 ? 'fill-primary' : 'text-primary')
+						// : 'text-base-content';
 
-		<div className='mobile-nav sticky bottom-2 px-2 w-full lg:hidden'>
-			<div className='z-50 flex w-full h-16 items-center justify-evenly self-center rounded-xl bg-white border  p-2 shadow-sm lg:hidden '>
+						let icon = React.cloneElement(route.icon, {
+							className,
+						});
+						return (
+							<MobileNavButton
+								key={route.id}
+								path={route.path}
+								isActive
+							>
+								{icon}
+								<span className='text-sm'>{route.title}</span>
+							</MobileNavButton>
+						);
+					})}
+				</div>
+			</div>
+		);
+	}
+
+	return (
+		<div className='mobile-nav fixed bottom-0 left-0 w-full bg-transparent lg:hidden'>
+			<div className='z-50 grid h-16 w-full grid-cols-3 items-center border bg-white  p-2 lg:hidden '>
 				{routes.map((route) => {
 					const isActive = activeRoute === route.path;
-					const className = `w-6 h-6 ${activeRoute.startsWith(route.path) ? '' : ''}`
+					const className = `w-6 h-6 ${activeRoute.startsWith(route.path) ? '' : ''}`;
 					// ? (route.id == 2 || route.id == 4 ? 'fill-primary' : 'text-primary')
 					// : 'text-base-content';
 
 					let icon = React.cloneElement(route.icon, { className });
 					return (
-						<MobileNavButton key={route.id} path={route.path} isActive>
+						<MobileNavButton
+							key={route.id}
+							path={route.path}
+							isActive
+						>
 							{icon}
 							<span className='text-sm'>{route.title}</span>
 						</MobileNavButton>
 					);
 				})}
-			</div></div>
+			</div>
+		</div>
 	);
 };
 
@@ -88,7 +125,7 @@ const MobileNavButton = ({
 	return (
 		<Link
 			href={path}
-			className='btn flex flex-col items-center justify-center shadow-none w-18 gap-1'
+			className='btn w-18 flex flex-col items-center justify-center gap-1 shadow-none'
 		>
 			{children}
 		</Link>

@@ -24,7 +24,7 @@ export default function HistoryCard(entry: HistoryEntry) {
 				/>
 				<div className="absolute top-0 left-0 p-1 bg-orange-100 rounded-tl-md rounded-br-md">{icon}</div>
 			</div>
-			<div className='w-full h-full flex flex-col'>
+			<div className='w-full h-full flex flex-col shrink'>
 				<span className='text-base font-medium'>{formatDate(entry.date)}</span>
 				<span className='text-sm '>{entry.title}</span>
 				<div className='text-sm font-normal flex gap-2 py-1'>
@@ -33,7 +33,7 @@ export default function HistoryCard(entry: HistoryEntry) {
 					)}
 				</div>
 			</div>
-			<div className='flex items-center'>
+			<div className='flex items-center shrink-0 p-1'>
 				<Link href={`my-path/${entry.slug}`}>
 					<ChevronRightCircle strokeWidth={1} className='group-hover:fill-primary group-hover:stroke-secondary' />
 				</Link>

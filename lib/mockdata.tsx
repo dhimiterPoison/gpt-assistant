@@ -124,5 +124,32 @@ export const history: HistoryEntry[] = [
 	  title: 'Finding peace while staying focused',
 	  cover: 'https://source.unsplash.com/random/800x600',
 	  type: 'handwritten'
+	},
+	{
+	  id: 4,
+	  date: new Date('2024-02-14'),
+	  slug: '14-02-2024',
+	  tags: ['cycling', 'rain', 'wet', 'projects'],
+	  title: 'Finding peace while staying focused',
+	  cover: 'https://source.unsplash.com/random/800x600',
+	  type: 'handwritten'
+	},
+	{
+	  id: 5,
+	  date: new Date('2024-02-13'),
+	  slug: '13-02-2024',
+	  tags: ['cycling', 'rain', 'wet', 'projects'],
+	  title: 'Finding peace while staying focused',
+	  cover: 'https://source.unsplash.com/random/800x600',
+	  type: 'handwritten'
+	},
+	{
+	  id: 6,
+	  date: new Date('2024-02-12'),
+	  slug: '12-02-2024',
+	  tags: ['cycling', 'rain', 'wet', 'projects'],
+	  title: 'Finding peace while staying focused',
+	  cover: 'https://source.unsplash.com/random/800x600',
+	  type: 'handwritten'
 	}
   ];

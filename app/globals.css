@@ -151,8 +151,12 @@
 	}
 }
 
+.gutter-both-egdes {
+	scrollbar-gutter: stable both-edges;
+}
+
 *::-webkit-scrollbar {
-	width: 10px; /* width of the entire scrollbar */
+	width: 5px; /* width of the entire scrollbar */
 }
 
 *::-webkit-scrollbar-track {
