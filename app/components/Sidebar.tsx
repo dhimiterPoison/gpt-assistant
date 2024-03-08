@@ -54,6 +54,13 @@ export const secondaryRoutes = [
 		variant: 'ghost',
 		path: '/finances',
 	},
+	{
+		title: 'Fridge',
+		label: '',
+		icon: LayoutDashboard,
+		variant: 'ghost',
+		path: '/fridge',
+	}
 ];
 
 export const tertiaryRoutes = [

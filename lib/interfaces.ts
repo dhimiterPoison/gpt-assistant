@@ -21,3 +21,14 @@ export interface HistoryEntry {
 	type: 'video' | 'audio' | 'text' | 'handwritten';
 	slug: string;
 }
+
+export interface FridgeItem {
+	id: number;
+	name: string;
+	cover: string;
+	quantity: number;
+	unit: string;
+	expiration: Date;
+	where: 'fridge' | 'freezer' | 'pantry';
+	note: string | null;
+}

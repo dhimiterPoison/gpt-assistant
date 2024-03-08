@@ -1,4 +1,4 @@
-import { HistoryEntry, TaskInterface } from './interfaces';
+import { FridgeItem, HistoryEntry, TaskInterface } from './interfaces';
 import { Cookie, LogOut, Settings } from "lucide-react";
 
 export const arrayToSort: TaskInterface[] = [
@@ -153,3 +153,26 @@ export const history: HistoryEntry[] = [
 	  type: 'handwritten'
 	}
   ];
+
+  export const fridgeItems: FridgeItem[] = [
+	{
+		id: 1,
+		cover: 'https://source.unsplash.com/random/800x600',
+		name: 'Pumpkin',
+		quantity: 450,
+		unit: 'g',
+		where: 'freezer',
+		expiration: new Date('2024-02-18'), //if freezer, expiration is 6 months
+		note: 'first drawer'
+	},
+	{
+		id: 2,
+		cover: 'https://source.unsplash.com/random/800x600',
+		name: 'Peppers',
+		quantity: 4,
+		unit: 'stuk',
+		where: 'fridge',
+		expiration: new Date('2024-02-18'), //if fridge, expiration is 2 weeks
+		note: null
+	}
+]

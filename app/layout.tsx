@@ -37,10 +37,10 @@ export default function RootLayout({
 						<>
 							<Sidebar isCollapsed={false} />
 							<TitleBar />
-							<div className='router-content flex h-full w-full flex-col overflow-y-scroll gutter-both-egdes p-0'>
+							<div className='router-content flex h-full w-full flex-col overflow-y-scroll gutter-both-egdes p-0 lg:py-4'>
 								<RouteTitle />
 								{children}
-								<div className='h-20 opacity-0'></div>
+								<div className='h-20 opacity-0 '></div>
 								<MobileNavigation type='anchor' />
 							</div>
 						</>
