@@ -7,7 +7,6 @@ import TimelinePeek from '@/components/TimelinePeek';
 import { MicrophoneIcon } from '@/lib/icons';
 import { account } from '@/lib/mockdata';
 import { Plus } from 'lucide-react';
-import { EllipsisIcon } from '@/lib/icons';
 import WidgetHeader from '@/components/WidgetHeader';
 
 export default function Component() {
@@ -38,7 +37,7 @@ export default function Component() {
 						<div className='h-full w-2 shrink-0 py-2'>
 							<div className='signal-color h-full w-full rounded-sm bg-green-500'></div>
 						</div>
-						<div className='overflow-scroll text-ellipsis flex flex-col py-1'>
+						<div className='overflow-scroll text-ellipsis flex flex-col py-1 overflow-x-hidden'>
 							<span className='font-semibold'>Consistency +</span>
 							<span>
 								You&apos;re doing great! Keep up the good work

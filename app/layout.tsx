@@ -9,6 +9,7 @@ import TitleBar from './components/TitleBar';
 import { TooltipProvider } from './components/ui/tooltip';
 import './globals.css';
 import { GeistSans } from 'geist/font/sans';
+import PlausibleProvider from 'next-plausible';
 
 const inter = Inter({ subsets: ['latin'] });
 const manrope = Manrope({ subsets: ['latin'] });
@@ -37,7 +38,7 @@ export default function RootLayout({
 						<>
 							<Sidebar isCollapsed={false} />
 							<TitleBar />
-							<div className='router-content flex h-full w-full flex-col overflow-y-scroll gutter-both-egdes p-0 lg:py-4'>
+							<div className='router-content gutter-both-egdes flex h-full w-full flex-col overflow-y-scroll p-0 lg:py-4'>
 								<RouteTitle />
 								{children}
 								<div className='h-20 opacity-0 '></div>
@@ -47,6 +48,11 @@ export default function RootLayout({
 					)}
 				</TooltipProvider>
 				<Analytics></Analytics>
+				<PlausibleProvider
+					domain='selfglance.com'
+					trackOutboundLinks={true}
+					taggedEvents={true}
+				/>
 			</body>
 		</html>
 	);
