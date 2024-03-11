@@ -16,7 +16,7 @@ const HistoryDetailView = ({ entry, variant }: Props) => {
 	let className = '';
 	switch (variant) {
 		case 'split': {
-			className = 'hidden lg:flex flex-col lg:w-1/2 ';
+			className = 'hidden lg:flex flex-col md:w-1/2 lg:w-2/3 ';
 			break;
 		}
 		case 'full': {

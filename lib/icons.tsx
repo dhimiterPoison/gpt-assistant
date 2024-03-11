@@ -1,4 +1,4 @@
-import { cn } from "./utils";
+import { cn } from './utils';
 
 export const ArrowIcon = (props: any) => {
 	return (
@@ -8,7 +8,7 @@ export const ArrowIcon = (props: any) => {
 			viewBox='0 0 24 24'
 			strokeWidth={1.5}
 			stroke='currentColor'
-			className={cn('w-6 h-6', props.className)}
+			className={cn('h-6 w-6', props.className)}
 		>
 			<path
 				strokeLinecap='round'
@@ -25,7 +25,7 @@ export const TickIcon = (props: any) => {
 			xmlns='http://www.w3.org/2000/svg'
 			viewBox='0 0 24 24'
 			fill='currentColor'
-			className={cn('w-6 h-6', props.className)}
+			className={cn('h-6 w-6', props.className)}
 		>
 			<path
 				fillRule='evenodd'
@@ -41,7 +41,7 @@ export const XIcon = (props: any) => {
 			xmlns='http://www.w3.org/2000/svg'
 			viewBox='0 0 24 24'
 			fill='currentColor'
-			className={cn('w-6 h-6', props.className)}
+			className={cn('h-6 w-6', props.className)}
 		>
 			<path
 				fillRule='evenodd'
@@ -57,7 +57,7 @@ export const SettingsIcon = (props: any) => {
 			xmlns='http://www.w3.org/2000/svg'
 			viewBox='0 0 24 24'
 			fill='currentColor'
-			className={cn('w-6 h-6', props.className)}
+			className={cn('h-6 w-6', props.className)}
 		>
 			<path
 				fillRule='evenodd'
@@ -74,7 +74,7 @@ export const ArchiveIcon = (props: any) => {
 			xmlns='http://www.w3.org/2000/svg'
 			viewBox='0 0 24 24'
 			fill='currentColor'
-			className={cn('w-6 h-6', props.className)}
+			className={cn('h-6 w-6', props.className)}
 		>
 			<path d='M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z' />
 			<path
@@ -94,7 +94,7 @@ export const MicrophoneIcon = (props: any) => {
 			viewBox='0 0 24 24'
 			strokeWidth={1.5}
 			stroke='currentColor'
-			className={cn('w-6 h-6', props.className)}
+			className={cn('h-6 w-6', props.className)}
 		>
 			<path
 				strokeLinecap='round'
@@ -108,17 +108,36 @@ export const MicrophoneIcon = (props: any) => {
 export const HandwriteIcon = (props: any) => {
 	return (
 		<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		strokeWidth={1}
-		stroke='currentColor'
-		className={cn('w-6 h-6', props.className)}
-	  >
-		<path
-		  fill="#464455"
-		  d="M10.354 11.434l-.351-.355a.5.5 0 00-.144.287l.495.069zm6.589-6.514l.351.356-.351-.356zm2.017 1.991l-.36-.346.36.346zm-6.479 6.723l.073.494a.5.5 0 00.287-.148l-.36-.347zM10 14l-.495-.068a.5.5 0 00.568.563L10 14zm8.865-9.146l.326-.379-.326.38zM8 16.5a.5.5 0 000-1v1zm12 4a.5.5 0 000-1v1zm-9.294-8.71l6.588-6.514-.703-.712-6.588 6.515.703.711zM18.6 6.565l-6.479 6.721.72.694 6.479-6.722-.72-.694zm-6.192 6.574l-2.481.366.146.99 2.481-.367-.146-.99zm-1.913.93l.355-2.566-.99-.137-.355 2.566.99.136zm8.043-8.836a.917.917 0 01.062 1.332l.72.693a1.917 1.917 0 00-.129-2.783l-.653.758zm-1.244.043a.917.917 0 011.244-.043l.653-.758a1.917 1.917 0 00-2.6.09l.703.71zM8 15.5H6v1h2v-1zm-2 5h14v-1H6v1zM3.5 18A2.5 2.5 0 006 20.5v-1A1.5 1.5 0 014.5 18h-1zM6 15.5A2.5 2.5 0 003.5 18h1A1.5 1.5 0 016 16.5v-1z"
-		></path>
-	  </svg>
+			xmlns='http://www.w3.org/2000/svg'
+			fill='none'
+			viewBox='0 0 24 24'
+			strokeWidth={1}
+			stroke='currentColor'
+			className={cn('h-6 w-6', props.className)}
+		>
+			<path
+				fill='#464455'
+				d='M10.354 11.434l-.351-.355a.5.5 0 00-.144.287l.495.069zm6.589-6.514l.351.356-.351-.356zm2.017 1.991l-.36-.346.36.346zm-6.479 6.723l.073.494a.5.5 0 00.287-.148l-.36-.347zM10 14l-.495-.068a.5.5 0 00.568.563L10 14zm8.865-9.146l.326-.379-.326.38zM8 16.5a.5.5 0 000-1v1zm12 4a.5.5 0 000-1v1zm-9.294-8.71l6.588-6.514-.703-.712-6.588 6.515.703.711zM18.6 6.565l-6.479 6.721.72.694 6.479-6.722-.72-.694zm-6.192 6.574l-2.481.366.146.99 2.481-.367-.146-.99zm-1.913.93l.355-2.566-.99-.137-.355 2.566.99.136zm8.043-8.836a.917.917 0 01.062 1.332l.72.693a1.917 1.917 0 00-.129-2.783l-.653.758zm-1.244.043a.917.917 0 011.244-.043l.653-.758a1.917 1.917 0 00-2.6.09l.703.71zM8 15.5H6v1h2v-1zm-2 5h14v-1H6v1zM3.5 18A2.5 2.5 0 006 20.5v-1A1.5 1.5 0 014.5 18h-1zM6 15.5A2.5 2.5 0 003.5 18h1A1.5 1.5 0 016 16.5v-1z'
+			></path>
+		</svg>
+	);
+};
+
+export const EllipsisIcon = (props: any) => {
+	return (
+		<svg
+			xmlns='http://www.w3.org/2000/svg'
+			fill='none'
+			viewBox='0 0 24 24'
+			strokeWidth={1.5}
+			stroke='currentColor'
+			className='h-6 w-6'
+		>
+			<path
+				strokeLinecap='round'
+				strokeLinejoin='round'
+				d='M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+			/>
+		</svg>
 	);
 };

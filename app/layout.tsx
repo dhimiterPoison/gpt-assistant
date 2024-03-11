@@ -26,9 +26,9 @@ export default function RootLayout({
 }>) {
 	const isLogged = true;
 	return (
-		<html lang='en'>
+		<html lang='en' className=''>
 			<body
-				className={`${GeistSans.className} relative flex h-[100svh] w-full flex-col overflow-hidden lg:flex-row`}
+				className={`${GeistSans.className}bg-slate-50 relative flex h-[100svh] w-full flex-col overflow-hidden lg:flex-row`}
 			>
 				<TooltipProvider>
 					{!isLogged ? (

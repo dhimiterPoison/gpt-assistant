@@ -8,7 +8,7 @@ const PathPage = () => {
 	return (
 		<div className='flex h-full w-full flex-col gap-4  pb-4 lg:flex-row'>
 			{/* lg:left main container, sm:top main container*/}
-			<div className='relative grid grid-rows-[1fr_200px] grid-cols-1 h-full w-full gap-4 rounded-lg  shadow-sm lg:h-full lg:w-1/2'>
+			<div className='relative grid grid-rows-[1fr_200px] grid-cols-1 h-full w-full gap-4 rounded-lg  shadow-sm lg:h-full lg:w-1/2 2xl:w-1/3'>
 				<div className='border-1 w-full overflow-x-clip overflow-y-scroll rounded-md border p-1 shadow-sm'>
 					{history.map((entry, index) => {
 						return (
