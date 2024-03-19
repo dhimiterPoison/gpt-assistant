@@ -5,7 +5,7 @@ import {
 } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import RecipeSuggestions from './RecipeSuggestions';
-import FridgeItem from './FridgeItem';
+import FridgeItemComponent from './FridgeItem';
 import GroceriesFilter from './GroceriesFilter';
 
 const FridgePage = async () => {
@@ -25,7 +25,7 @@ const FridgePage = async () => {
 				<h2 className='text-xl font-semibold pt-4'>Groceries</h2>
 				<GroceriesFilter />
 				<div className='groceries-list flex flex-col gap-2'>
-					{fridge?.map((el) => <FridgeItem key={el.id} item={el}/>)}
+					{fridge?.map((el) => <FridgeItemComponent key={el.id} item={el}/>)}
 				</div>
 			</div>
 		</div>
