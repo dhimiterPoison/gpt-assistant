@@ -4,60 +4,55 @@
  */
 import { Button } from '@/app/components/ui/button';
 import { Manrope } from 'next/font/google';
-import Image from 'next/image';
 import Link from 'next/link';
-import ModernLanding from './ModernLanding';
+import ModernLandingHero from './ModernLandingHero';
 
 const manrope = Manrope({ subsets: ['latin'] });
 export default function LandingPage() {
 	return (
-		<div>
-			<header className='flex w-full h-20 items-center justify-between p-6 bg-gradient-to-b from-white  to-[#a8abad] fade dark:bg-gray-800 shadow-md'>
-				<div className='flex items-center space-x-4'>
-					<h1
-						className={`text-lg font-semibold text-gray-800 dark:text-gray-200 ${manrope.className}`}
-					>
-						<Link href="/" className='flex items-end'><span className='text-2xl'>Self</span><span className='hidden md:flex'>, your life at a glance</span></Link>
-					</h1>
-				</div>
-				<nav className='flex items-center space-x-6'>
-					{/* <Link
-			className='text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-			href='#'
-		>
-			Upload
-		</Link>
-		<Link
-			className='text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-			href='#'
-		>
-			Output
-		</Link>*/}
-					<Link
-						className='hover:text-gray-800 dark:hover:text-gray-200 hover:underline'
+		<div className='relative min-h-[100svh] overflow-y-scroll'>
+			<div className='header fixed left-0 top-0 w-full p-4'>
+				<header className='fade flex  w-full items-center justify-between rounded-3xl bg-[#c7d1ce] p-2 pl-6'>
+					<div className='flex items-center space-x-4'>
+						<h1
+							className={`text-lg font-semibold text-gray-800 dark:text-gray-200 ${manrope.className}`}
+						>
+							<Link href='/' className='flex items-end '>
+								<span className='text-3xl'>Self</span>
+								<span className='flex text-lg'>
+									, your life at a glance
+								</span>
+							</Link>
+						</h1>
+					</div>
+					<nav className='flex items-center space-x-6'>
+						{/* <Link
+						className='text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
 						href='#'
 					>
-						Mission
+						Upload
 					</Link>
-					{/* <Link
-				className='text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
-				href='#'
-			>
-				<div className='flex items-center space-x-2 gap-2 rounded-lg'>
-					<Avatar>
-						<AvatarImage
-							src='https://github.com/dhimiterPoison.png'
-							alt='@dhimiterPoison'
-						/>
-						<AvatarFallback>DH</AvatarFallback>
-					</Avatar>
-					D. Helmi
-				</div>
-			</Link> */}
-					<Button className='rounded-full'><Link href="/dashboard">Try it out</Link></Button>
-				</nav>
-			</header>
-			<ModernLanding /></div>
+					<Link
+						className='text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+						href='#'
+					>
+						Output
+					</Link>*/}
+						{/* <Link
+						className='hover:text-gray-800 hover:underline dark:hover:text-gray-200'
+						href='#'
+					>
+						Log In
+					</Link> */}
+						<Button className='rounded-full'>
+							<Link href='/dashboard'>Sign in</Link>
+						</Button>
+					</nav>
+				</header>
+			</div>
+			<ModernLandingHero />
+			{/* <ModernLanding /> */}
+		</div>
 		// 	<section className='landing-page flex w-full py-12 h-2/3 items-center'>
 		// 	<div className='container px-4 md:px-12'>
 		// 		<div className='grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]'>
