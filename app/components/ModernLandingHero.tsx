@@ -36,7 +36,7 @@ export default function ModernLandingHero() {
 						use your energies more consciusly.
 					</span>
 				</div>
-				<div className='CTA flex flex-col-reverse items-center justify-center gap-4 py-4 lg:py-8'>
+				<div className='CTA flex w-full flex-col-reverse items-center justify-center gap-4 py-4 lg:py-8'>
 					<div className='flex flex-col items-center'>
 						<Button variant='link' className=' text-base underline'>
 							Tell me more
@@ -49,15 +49,15 @@ export default function ModernLandingHero() {
 
 					<Link
 						href='/dashboard'
-						className='flex w-full items-center justify-center gap-4 lg:w-2/3'
+						className='flex w-full items-center justify-center gap-4 '
 					>
 						<Input
-							className='hidden h-full  rounded-full border border-slate-200 px-8 lg:block'
+							className='hidden h-full rounded-full shadow-sm shadow-green-900 border border-slate-200  px-8 text-base md:block'
 							placeholder='Type your email'
 						></Input>
 						<ButtonMovingBorder
 							variant='outline'
-							className='rounded-full border-green-950 bg-green-100 text-base font-bold text-primary duration-200 ease-in-out active:scale-110'
+							className='rounded-full border-green-900 border-none shadow-md shadow-green-600 bg-green-100 text-base font-bold text-primary duration-200 ease-in-out active:scale-110'
 						>
 							Join waitlist
 							<ArrowRightIcon
