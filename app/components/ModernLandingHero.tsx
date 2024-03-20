@@ -14,13 +14,13 @@ export default function ModernLandingHero() {
 	return (
 		<div className='hero relative flex h-full w-full flex-col'>
 			<div className='h-20 shrink-0'></div>
-			<Image 
+			<Image
 				src={SelfHeroBackground}
 				alt='Self hero background'
-				className='hero-background fixed top-0 left-0 w-full object-cover z-0'
+				className='hero-background fixed left-0 top-0 z-0 w-full object-cover'
 			/>
 			{/* <FloatingTitleSection /> */}
-			<div className='flex w-full flex-col justify-center gap-4 z-10 self-center p-8 lg:w-2/3'>
+			<div className='z-10 flex w-full flex-col justify-center gap-4 self-center p-8 py-4 lg:w-2/3'>
 				{/* {logged ? <div>
 					<span className='text-xl'>Hi user name</span>
 				</div> : null} */}
@@ -42,7 +42,26 @@ export default function ModernLandingHero() {
 							Self, with <strong>Self</strong>.
 						</span>
 						<div className='svganimation-systems  h-40 w-full py-4 lg:h-48'>
-							<div className='h-full w-full bg-emerald-600/50'></div>
+							<div className='grid h-full w-full grid-cols-6 grid-rows-3 gap-1 rounded-lg border-emerald-600/50 text-sm *:border *:border-slate-400'>
+								<div className='sleep col-span-3 row-span-2 flex items-center justify-center rounded-md bg-purple-400 text-slate-50'>
+									Sleep
+								</div>
+								<div className='sleep col-span-2 row-span-1 flex items-center justify-center rounded-md bg-yellow-400 text-slate-950'>
+									Food
+								</div>
+								<div className='sleep col-span-2 row-span-1 flex items-center justify-center rounded-md bg-green-300 text-slate-950'>
+									Cycling
+								</div>
+								<div className='sleep col-span-1 row-span-1 row-start-1 flex items-center justify-center rounded-md bg-green-900 text-sm text-slate-50'>
+									Exercise
+								</div>
+								<div className='sleep col-span-4 row-start-3 flex items-center justify-center rounded-md bg-slate-300 text-slate-950'>
+									Work
+								</div>
+								<div className='sleep col-span-1 row-span-1 row-start-3 flex items-center justify-center rounded-md border-dashed bg-slate-100 text-sm text-slate-950 cursor-pointer'>
+									+
+								</div>
+							</div>
 						</div>
 						<span className='text-lg'>
 							Store your thoughts, ideas, and feelings in a{' '}

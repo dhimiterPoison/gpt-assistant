@@ -12,7 +12,7 @@ export default function LandingPage() {
 	return (
 		<div className='relative min-h-[100svh] overflow-y-scroll'>
 			<div className='header fixed left-0 top-0 w-full p-4 z-20'>
-				<header className='fade flex  w-full items-center justify-between rounded-3xl bg-green-950/30 p-2 pl-6'> {/*bg-[#c7d1ce]*/}
+				<header className='fade flex  w-full items-center justify-between rounded-full bg-green-950/30 px-4 pl-6 py-4'> {/*bg-[#c7d1ce]*/}
 					<div className='flex items-center space-x-4'>
 						<h1
 							className={`text-lg font-semibold text-slate-50 dark:text-gray-200 ${manrope.className}`}

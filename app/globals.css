@@ -157,6 +157,9 @@
 	.hero {
 		background-position: 24% 25%;
 	}
+	.hero-background {
+		filter: blur(150px);
+	}
 }
 
 .gutter-both-egdes {
