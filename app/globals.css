@@ -98,6 +98,10 @@
 	/* background-position: 24% 48%; */
 }
 
+.hero-background {
+	filter: blur(50px);
+}
+
 .hero-body {
 	display: flex;
 	flex-direction: column;

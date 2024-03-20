@@ -6,14 +6,21 @@ import { useRef } from 'react';
 import FloatingHeroSection from './FloatingTitleSection';
 import FloatingTitleSection from './FloatingTitleSection';
 import { Input } from '@/components/ui/input';
+import Image from 'next/image';
+import SelfHeroBackground from '@/public/Self-hero-background.png';
 
 // const logged = false;
 export default function ModernLandingHero() {
 	return (
-		<div className='hero flex h-full w-full flex-col'>
+		<div className='hero relative flex h-full w-full flex-col'>
 			<div className='h-20 shrink-0'></div>
+			<Image 
+				src={SelfHeroBackground}
+				alt='Self hero background'
+				className='hero-background fixed top-0 left-0 w-full object-cover z-0'
+			/>
 			{/* <FloatingTitleSection /> */}
-			<div className='flex w-full flex-col justify-center gap-4 self-center p-8 lg:w-2/3'>
+			<div className='flex w-full flex-col justify-center gap-4 z-10 self-center p-8 lg:w-2/3'>
 				{/* {logged ? <div>
 					<span className='text-xl'>Hi user name</span>
 				</div> : null} */}
@@ -25,11 +32,16 @@ export default function ModernLandingHero() {
 					<br />
 					<br />
 					<div className=''>
-						<span className='text-xl'>Make <em>peace</em> with ADHD and take advantage of your
-						creativity. <br /></span>
+						<span className='text-xl'>
+							Make <em>peace</em> with ADHD and <em>own</em> your
+							curiosity and creativity. <br />
+						</span>
 						{/* <br /> */}
-						<span className='text-xl'>Build systems <strong>tailored</strong> on Your Self.</span>
-						<div className='svganimation-systems  h-40 lg:h-48 w-full py-4'>
+						<span className='text-xl'>
+							Build systems <strong>tailored</strong> on Your
+							Self, with <strong>Self</strong>.
+						</span>
+						<div className='svganimation-systems  h-40 w-full py-4 lg:h-48'>
 							<div className='h-full w-full bg-emerald-600/50'></div>
 						</div>
 						<span className='text-lg'>
@@ -40,7 +52,7 @@ export default function ModernLandingHero() {
 						</span>
 					</div>
 				</div>
-				<div className='CTA flex w-full flex-row md:flex-col-reverse items-center justify-center  gap-12 md:gap-8 py-4 lg:py-8'>
+				<div className='CTA flex w-full flex-row items-center justify-center gap-12  py-4 md:flex-col-reverse md:gap-8 lg:py-8'>
 					<div className='flex flex-col items-center'>
 						<Button variant='link' className=' text-base underline'>
 							Tell me more
@@ -53,7 +65,7 @@ export default function ModernLandingHero() {
 
 					<Link
 						href='/dashboard'
-						className='flex md:w-full items-center justify-center gap-4 '
+						className='flex items-center justify-center gap-4 md:w-full '
 					>
 						<Input
 							className='hidden h-full rounded-full border border-slate-200 px-8 text-base  shadow-sm shadow-green-900 md:block'

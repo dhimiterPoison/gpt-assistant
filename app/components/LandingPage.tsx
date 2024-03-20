@@ -11,11 +11,11 @@ const manrope = Manrope({ subsets: ['latin'] });
 export default function LandingPage() {
 	return (
 		<div className='relative min-h-[100svh] overflow-y-scroll'>
-			<div className='header fixed left-0 top-0 w-full p-4'>
-				<header className='fade flex  w-full items-center justify-between rounded-3xl bg-[#c7d1ce] p-2 pl-6'>
+			<div className='header fixed left-0 top-0 w-full p-4 z-20'>
+				<header className='fade flex  w-full items-center justify-between rounded-3xl bg-green-950/30 p-2 pl-6'> {/*bg-[#c7d1ce]*/}
 					<div className='flex items-center space-x-4'>
 						<h1
-							className={`text-lg font-semibold text-gray-800 dark:text-gray-200 ${manrope.className}`}
+							className={`text-lg font-semibold text-slate-50 dark:text-gray-200 ${manrope.className}`}
 						>
 							<Link href='/' className='flex items-end '>
 								<span className='text-3xl'>Self</span>
@@ -44,7 +44,7 @@ export default function LandingPage() {
 					>
 						Log In
 					</Link> */}
-						<Button className='rounded-full'>
+						<Button className='rounded-full bg-green-950'>
 							<Link href='/dashboard'>Sign in</Link>
 						</Button>
 					</nav>
