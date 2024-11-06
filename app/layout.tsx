@@ -25,11 +25,11 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const isLogged = false;
+	const isLogged = true;
 	return (
 		<html lang='en' className=''>
 			<body
-				className={`${GeistSans.className}bg-slate-50 relative flex h-[100svh] w-full flex-col overflow-hidden`}
+				className={`${GeistSans.className}bg-slate-50 relative flex h-[100svh] w-full flex-col lg:flex-row overflow-hidden`}
 			>
 				<TooltipProvider>
 					{!isLogged ? (

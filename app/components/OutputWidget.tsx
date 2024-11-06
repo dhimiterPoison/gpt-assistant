@@ -68,7 +68,16 @@ const outputActions: Action[] = [
 	},
 ];
 
-const OutputWidget = () => {
+const OutputWidget = async () => {
+	const whisperOutput = await fetch('/api/audio', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	});
+
+	const whisperOutputText = await whisperOutput.json();
+
 	return (
 		<Card className='h-full w-full overflow-auto'>
 			<CardHeader className=''>
@@ -77,12 +86,12 @@ const OutputWidget = () => {
 					The output of the uploaded content will appear here.
 				</CardDescription>
 			</CardHeader>
-			<CardContent className='h-48 overflow-auto p-4 bg-gray-100 dark:bg-gray-800 rounded-xl'>
+			<CardContent className='h-full overflow-auto rounded-xl bg-gray-100 p-4 dark:bg-gray-800'>
 				<p className='text-gray-500 dark:text-gray-400'>
-					No content uploaded yet.
+					<span>{whisperOutputText}</span>
 				</p>
 			</CardContent>
-			<CardFooter className='flex flex-col items-stretch gap-4 p-4 '>
+			{/* <CardFooter className='flex flex-col items-stretch gap-4 p-4 '>
 				<h2 className='font-semibold'>Found some actions, review them:</h2>
 				<div className='flex flex-col gap-4 '>
 					{outputActions.map((action) => {
@@ -155,7 +164,7 @@ const OutputWidget = () => {
 						);
 					})}
 				</div>
-			</CardFooter>
+			</CardFooter> */}
 		</Card>
 	);
 };

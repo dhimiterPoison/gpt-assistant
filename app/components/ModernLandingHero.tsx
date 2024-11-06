@@ -20,7 +20,7 @@ export default function ModernLandingHero() {
 				className='hero-background fixed left-0 top-0 z-0 w-full object-cover'
 			/>
 			{/* <FloatingTitleSection /> */}
-			<div className='z-10 flex w-full flex-col justify-center gap-4 self-center p-8 py-4 lg:w-2/3'>
+			<div className='z-10 flex w-full flex-col justify-center gap-4 self-center p-8 lg:w-2/3'>
 				{/* {logged ? <div>
 					<span className='text-xl'>Hi user name</span>
 				</div> : null} */}
@@ -55,10 +55,10 @@ export default function ModernLandingHero() {
 								<div className='sleep col-span-1 row-span-1 row-start-1 flex items-center justify-center rounded-md bg-green-900 text-sm text-slate-50'>
 									Exercise
 								</div>
-								<div className='sleep col-span-4 row-start-3 flex items-center justify-center rounded-md bg-slate-300 text-slate-950'>
+								<div className='sleep col-span-4 row-start-3 flex items-center justify-center rounded-md bg-blue-300 text-slate-950'>
 									Work
 								</div>
-								<div className='sleep col-span-1 row-span-1 row-start-3 flex items-center justify-center rounded-md border-dashed bg-slate-100 text-sm text-slate-950 cursor-pointer'>
+								<div className='sleep col-span-1 row-span-1 row-start-3 flex items-center justify-center rounded-md border-dashed bg-slate-100 hover:bg-slate-300 text-sm text-slate-950 cursor-pointer'>
 									+
 								</div>
 							</div>
@@ -71,7 +71,7 @@ export default function ModernLandingHero() {
 						</span>
 					</div>
 				</div>
-				<div className='CTA flex w-full flex-row items-center justify-center gap-12  py-4 md:flex-col-reverse md:gap-8 lg:py-8'>
+				<div className='CTA flex w-full flex-row items-center justify-center gap-12 md:flex-col-reverse md:gap-8 lg:py-8'>
 					<div className='flex flex-col items-center'>
 						<Button variant='link' className=' text-base underline'>
 							Tell me more

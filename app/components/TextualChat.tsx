@@ -55,6 +55,8 @@ const TextualChat = () => {
 		},
 	});
 
+
+	//! DEPRECATED. handling submit through the library hook useChat
 	async function onSubmit(values: z.infer<typeof formSchema>) {
 		console.log('text chat submit', values);
 		// Do something with the form values.
