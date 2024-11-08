@@ -10,6 +10,7 @@ import {
 } from '@/app/components/ui/card';
 import { ArchiveIcon } from '@radix-ui/react-icons';
 import React from 'react';
+import RecorderController from './RecorderController';
 
 const statuses = [
 	{
@@ -68,30 +69,42 @@ const outputActions: Action[] = [
 	},
 ];
 
-const OutputWidget = async () => {
-	const whisperOutput = await fetch('/api/audio', {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	});
+let whisperOutputText = '';
 
-	const whisperOutputText = await whisperOutput.json();
+const OutputWidget = async () => {
+	// const whisperOutput = await fetch('/api/audio', {
+	// 	method: 'GET',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 	},
+	// });
+
+	// const whisperOutputText = await whisperOutput.json();
 
 	return (
-		<Card className='h-full w-full overflow-auto'>
+		// <Card className='flex relative h-full grow-[2] flex-col overflow-y-hidden'>
+		<Card className='card flex relative h-full grow-[2] flex-col overflow-y-hidden pb-1'>
 			<CardHeader className=''>
 				<CardTitle>Output</CardTitle>
 				<CardDescription>
 					The output of the uploaded content will appear here.
 				</CardDescription>
 			</CardHeader>
-			<CardContent className='h-full overflow-auto rounded-xl bg-gray-100 p-4 dark:bg-gray-800'>
-				<p className='text-gray-500 dark:text-gray-400'>
+			<CardContent className='flex flex-col h-full p-6 bg-gray-100'>
+			{/* <CardContent className='flex flex-col grow overflow-auto rounded-xl bg-gray-100 p-4 dark:bg-gray-800'> */}
+				<div className='text-gray-500 dark:text-gray-400 h-full'>
 					<span>{whisperOutputText}</span>
-				</p>
+				</div>
 			</CardContent>
-			{/* <CardFooter className='flex flex-col items-stretch gap-4 p-4 '>
+			<RecorderController></RecorderController>
+		</Card>
+	);
+};
+
+export default OutputWidget;
+
+
+{/* <CardFooter className='flex flex-col items-stretch gap-4 p-4 '>
 				<h2 className='font-semibold'>Found some actions, review them:</h2>
 				<div className='flex flex-col gap-4 '>
 					{outputActions.map((action) => {
@@ -165,8 +178,3 @@ const OutputWidget = async () => {
 					})}
 				</div>
 			</CardFooter> */}
-		</Card>
-	);
-};
-
-export default OutputWidget;

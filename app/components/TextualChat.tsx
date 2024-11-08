@@ -1,6 +1,10 @@
 'use client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/app/components/ui/avatar';
+import {
+	Avatar,
+	AvatarFallback,
+	AvatarImage,
+} from '@/app/components/ui/avatar';
 import { Button } from '@/app/components/ui/button';
 import {
 	Card,
@@ -15,7 +19,7 @@ import {
 	FormField,
 	FormItem,
 	FormLabel,
-	FormMessage
+	FormMessage,
 } from '@/app/components/ui/form';
 import { Input } from '@/app/components/ui/input';
 import { MicrophoneIcon } from '@/lib/icons';
@@ -33,14 +37,14 @@ type Message = {
 };
 const TextualChat = () => {
 	// const [messages, setMessages] = React.useState<Message[]>([
-		// {
-		// 	"role": "user",
-		// 	"message": "hey brother"
-		// },
-		// {
-		// 	"role": "gpt",
-		// 	"message": "Hello! How can I assist you today?"
-		// }
+	// {
+	// 	"role": "user",
+	// 	"message": "hey brother"
+	// },
+	// {
+	// 	"role": "gpt",
+	// 	"message": "Hello! How can I assist you today?"
+	// }
 	// ]);
 	const { messages, handleSubmit, input, handleInputChange } = useChat();
 
@@ -54,7 +58,6 @@ const TextualChat = () => {
 			question: '',
 		},
 	});
-
 
 	//! DEPRECATED. handling submit through the library hook useChat
 	async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -91,75 +94,88 @@ const TextualChat = () => {
 	console.log('messages', messages);
 
 	return (
-		<Card className='flex flex-col h-full overflow-y-hidden grow-[2]'>
+		<Card className='flex h-full grow-[2] flex-col overflow-y-hidden'>
 			<CardHeader>
 				<CardTitle>Chat</CardTitle>
 				<CardDescription>
-					Ask me anything about your day, I&apos;ll try to help you out.
+					Ask me anything about your day, I&apos;ll try to help you
+					out.
 				</CardDescription>
 			</CardHeader>
-			<hr className='mx-6' />
-			<div className='h-full flex flex-col p-6 gap-4 empty:pb-0 overflow-y-auto'>
-				{messages.map((message, index) => {
-					return (
-						<div key={index} className='flex gap-2'>
-							<Avatar>
-								<AvatarImage
-									src='https://picsum.photos/200'
-									alt={message.role}
-								/>
-								<AvatarFallback>DH</AvatarFallback>
-							</Avatar>
-							<div className='flex flex-col'>
-								<span className='font-bold uppercase text-xs'>
-									{message.role}
-								</span>
-								{message.content}
+			<CardContent className='flex flex-col h-full content-end items-stretch justify-end p-6'>
+				<hr className='mx-6' />
+				<div className='flex h-full flex-col gap-4 overflow-y-auto p-6 empty:pb-0'>
+					{messages.map((message, index) => {
+						return (
+							<div key={index} className='flex gap-2'>
+								<Avatar>
+									<AvatarImage
+										src='https://picsum.photos/200'
+										alt={message.role}
+									/>
+									<AvatarFallback>DH</AvatarFallback>
+								</Avatar>
+								<div className='flex flex-col'>
+									<span className='text-xs font-bold uppercase'>
+										{message.role}
+									</span>
+									{message.content}
+								</div>
 							</div>
+						);
+					})}
+					{messages.length === 0 ? (
+						<div className='flex h-full justify-center'>
+							<Image
+								src={ChatIllustration}
+								className='h-full'
+								alt='template image for textual chat'
+							/>
 						</div>
-					);
-				})}
-				{messages.length === 0 ? (
-					<div className='h-full flex justify-center'>
-						<Image
-							src={ChatIllustration}
-							className='h-full'
-							alt='template image for textual chat'
-						/>
-					</div>
-				) : null}
-			</div>
-			<CardContent className='flex flex-col items-stretch justify-end content-end p-6 '>
-				<div className='flex gap-6 w-full justify-evenly  overflow-hidden pb-4'>
+					) : null}
+				</div>
+				<div className='flex w-full justify-evenly gap-6  overflow-hidden pb-4'>
 					<div className='flex flex-col items-center justify-center rounded-xl'>
 						<UploadIcon className='h-8 w-8 text-gray-400' />
-						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
+						<Button
+							className='mt-4 shadow-md'
+							variant='secondary'
+							size='sm'
+						>
 							Upload
 						</Button>
 					</div>
 					<div className='flex flex-col items-center justify-center rounded-xl  '>
 						<CameraIcon className='h-8 w-8 text-gray-400' />
-						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
+						<Button
+							className='mt-4 shadow-md'
+							variant='secondary'
+							size='sm'
+						>
 							Live
 						</Button>
 					</div>
 					<div className='flex flex-col items-center justify-center rounded-xl  '>
-						<MicrophoneIcon className="h-8 w-8 text-gray-400" />
-						<Button className='mt-4 shadow-md' variant='secondary' size='sm'>
+						<MicrophoneIcon className='h-8 w-8 text-gray-400' />
+						<Button
+							className='mt-4 shadow-md'
+							variant='secondary'
+							size='sm'
+						>
 							Audio
 						</Button>
 					</div>
 				</div>
 				<div className='flex items-center gap-4'>
-					<div className='h-[1px] border border-gray-400 w-full my-2'></div>
+					<div className='my-2 h-[1px] w-full border border-gray-400'></div>
 					or
-					<div className='h-[1px] border border-gray-400 w-full my-2'></div>
+					<div className='my-2 h-[1px] w-full border border-gray-400'></div>
 				</div>
 				<Form {...form}>
 					<form
 						// onSubmit={form.handleSubmit(onSubmit)}
 						onSubmit={handleSubmit}
-						className='justify-self-end space-y-8'
+						className='space-y-8 justify-self-end'
 					>
 						<FormField
 							control={form.control}
@@ -168,21 +184,25 @@ const TextualChat = () => {
 								<FormItem className=''>
 									<FormLabel>Message</FormLabel>
 									<FormControl>
-										<div className='flex gap-4  w-full'>
+										<div className='flex w-full  gap-4'>
 											<Input
 												placeholder='Example: I want to eat healthier'
 												{...field}
 												value={input}
 												onChange={handleInputChange}
 											/>
-											<Button type='submit' size='icon' className='px-2'>
+											<Button
+												type='submit'
+												size='icon'
+												className='px-2'
+											>
 												<svg
 													xmlns='http://www.w3.org/2000/svg'
 													fill='none'
 													viewBox='0 0 24 24'
 													strokeWidth={1.5}
 													stroke='currentColor'
-													className='w-5 h-5'
+													className='h-5 w-5'
 												>
 													<path
 														strokeLinecap='round'
