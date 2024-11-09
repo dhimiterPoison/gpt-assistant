@@ -3,6 +3,11 @@ import { Button } from '@/components/ui/button';
 import React, { useEffect, useState } from 'react';
 import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 
+import os from 'os';
+import path from 'path';
+import fs from 'fs';
+import { revalidatePath } from 'next/cache';
+
 const RecorderController = () => {
 	// const {
 	// 	startRecording,
@@ -18,6 +23,9 @@ const RecorderController = () => {
 	const recorderControls = useAudioRecorder();
 
 	const [currentSavedAudio, setCurrentSavedAudio] = useState<Blob>();
+	const [currentTranscription, setCurrentTranscription] = useState<string>(
+		'Record a message to view transcription'
+	);
 
 	// const addAudioElement = (blob: Blob) => {
 	// 	const audioContainer = document.getElementById('audio-container');
@@ -50,11 +58,11 @@ const RecorderController = () => {
 		const audioElement = document.createElement('audio');
 		audioElement.src = url;
 		audioElement.controls = true;
-		audioElement.id = 'audio-element'
+		audioElement.id = 'audio-element';
 
 		const previousAudioEl = document.getElementById('audio-element');
-		if(previousAudioEl) {
-			audioContainer.removeChild(previousAudioEl)
+		if (previousAudioEl) {
+			audioContainer.removeChild(previousAudioEl);
 		}
 
 		audioContainer.append(audioElement);
@@ -65,15 +73,34 @@ const RecorderController = () => {
 	}, [recorderControls.recordingBlob]);
 
 	const transcribeRecordedAudio = async () => {
-		console.log('transcribe method called', currentSavedAudio)
+		console.log('transcribe method called', currentSavedAudio);
+
+		if (!currentSavedAudio) {
+			return;
+		}
 
 		const response = await fetch('/api/audio', {
 			method: 'POST',
 			headers: {
-				"Content-Type": currentSavedAudio ? currentSavedAudio.type : 'audio/webm;codecs=opus', // Set the MIME type of the blob
+				'Content-Type': currentSavedAudio
+					? currentSavedAudio.type
+					: 'audio/webm;codecs=opus', // Set the MIME type of the blob
+				// "Content-Type": 'application/json'
 			},
-			body: currentSavedAudio
+			body: currentSavedAudio,
 		});
+		if (!response.ok) {
+			console.error(
+				'Failed to fetch transcription:',
+				response.statusText
+			);
+			return;
+		}
+
+		// revalidatePath('/dashboard', 'page')
+		// const data = await response.json();
+		// console.log('Transcription:', data.transcription);
+		// console.log('client response to servercall', data);
 	};
 
 	console.log('recordingBlob', recorderControls);

@@ -11,6 +11,12 @@ import {
 import { ArchiveIcon } from '@radix-ui/react-icons';
 import React from 'react';
 import RecorderController from './RecorderController';
+import { getXataClient } from '@/lib/xata';
+import { CloudUpload } from 'lucide-react';
+import { revalidatePath } from 'next/cache';
+
+export const dynamic = 'force-dynamic';
+
 
 const statuses = [
 	{
@@ -44,6 +50,8 @@ type Action = {
 	suggestedDateTime?: string;
 };
 
+const xata = getXataClient();
+
 const outputActions: Action[] = [
 	{
 		id: 1,
@@ -72,22 +80,24 @@ const outputActions: Action[] = [
 let whisperOutputText = '';
 
 const OutputWidget = async () => {
-	// const whisperOutput = await fetch('/api/audio', {
-	// 	method: 'GET',
-	// 	headers: {
-	// 		'Content-Type': 'application/json',
-	// 	},
-	// });
+	
 
-	// const whisperOutputText = await whisperOutput.json();
+
+	const thoughts = (await xata.db.thoughts.sort('xata.createdAt', 'desc').getAll());
+
 
 	return (
 		// <Card className='flex relative h-full grow-[2] flex-col overflow-y-hidden'>
 		<Card className='card flex relative h-full grow-[2] flex-col overflow-y-hidden pb-1'>
 			<CardHeader className=''>
 				<CardTitle>Output</CardTitle>
-				<CardDescription>
-					The output of the uploaded content will appear here.
+				<CardDescription className='flex flex-col gap-2'>
+					{thoughts.map(thought => {
+						return <div className='font-normal text-lg text-slate-100 flex gap-2 items-center p-2 bg-green-800 shadow-lg'>
+							<CloudUpload className='w-4 h-4 shrink-0'/>
+							<span>{thought.text}</span>
+						</div>
+					})}
 				</CardDescription>
 			</CardHeader>
 			<CardContent className='flex flex-col h-full p-6 bg-gray-100'>

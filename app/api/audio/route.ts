@@ -6,7 +6,10 @@ import fs from 'fs';
 import { getXataClient } from '@/lib/xata';
 import Error from 'next/error';
 import path from 'path';
-import os from 'os'
+import os from 'os';
+import { BlobLike, Uploadable } from 'openai/uploads.mjs';
+import { XataFile } from '@xata.io/client';
+import { revalidatePath } from 'next/cache';
 
 const config = {
 	apiKey: process.env.OPENAI_API_KEY,
@@ -37,15 +40,8 @@ export async function GET(req: Request) {
 	// }
 	try {
 		let transcription = '';
-		// transcription = await openai.audio.transcriptions.create({
-		// 	file: fs.createReadStream('public/audio/test-rec-therapy.m4a'),
-		// 	model: 'whisper-1',
-		// 	response_format: 'text',
-		// });
-
+		
 		console.log(transcription);
-
-		// xata.db.thoughts.getAll();
 
 		return NextResponse.json({ body: transcription });
 
@@ -66,58 +62,97 @@ export async function GET(req: Request) {
 		return NextResponse.json({ error: error }, { status: 500 });
 	}
 }
-async function streamToBuffer(readableStream: ReadableStream<Uint8Array>): Promise<Buffer> {
+async function streamToBuffer(
+	readableStream: ReadableStream<Uint8Array>
+): Promise<Buffer> {
 	const reader = readableStream.getReader();
 	const chunks: Uint8Array[] = [];
 	let done = false;
-	
+
 	while (!done) {
-	  const { value, done: streamDone } = await reader.read();
-	  done = streamDone;
-	  if (value) {
-		chunks.push(value);
-	  }
+		const { value, done: streamDone } = await reader.read();
+		done = streamDone;
+		if (value) {
+			chunks.push(value);
+		}
 	}
-	
+
 	return Buffer.concat(chunks);
-  }
-  
-  export async function POST(req: Request) {
-	console.log('Received POST /api/audio with req');
-	
+}
+
+export async function POST(req: Request) {
+	console.log('Received POST /api/audio with req', req);
+
 	try {
-	  if (!req.body) {
-		console.log('body is null');
-		return NextResponse.json({ error: 'Request body is null' }, { status: 400 });
-	  }
-  
-	  // Convert the readable stream to a Buffer
-	  const buffer = await streamToBuffer(req.body as ReadableStream<Uint8Array>);
-	  
-	  // Create a temporary file
-	  const tmpDir = os.tmpdir();
-	  const tmpFilePath = path.join(tmpDir, `audio-${Date.now()}.webm`);
-	  
-	  // Write the buffer to a temporary file
-	  fs.writeFileSync(tmpFilePath, buffer);
-  
-	  try {
-		// Use the temporary file path with OpenAI
-		let transcription = await openai.audio.transcriptions.create({
-		  file: fs.createReadStream(tmpFilePath),
-		  model: 'whisper-1',
-		  response_format: 'text',
-		});
-  
-		console.log(transcription);
+		if (!req.body) {
+			console.log('body is null');
+			return NextResponse.json(
+				{ error: 'Request body is null' },
+				{ status: 400 }
+			);
+		}
+
+		console.log('body on server:', req.body)
+
+		// Convert the readable stream to a Buffer
+		const buffer = await streamToBuffer(
+			req.body as ReadableStream<Uint8Array>
+		);
+
+		// Create a temporary file
+		const tmpDir = os.tmpdir();
+		const tmpFilePath = path.join(tmpDir, `audio-${Date.now()}.webm`);
+
+		const tempFileBuffer = new Uint8Array(buffer);
 		
-		return NextResponse.json({ transcription });
-	  } finally {
-		// Clean up: Delete the temporary file
-		fs.unlinkSync(tmpFilePath);
-	  }
+		// Write the buffer to a temporary file
+		  fs.writeFileSync(tmpFilePath, tempFileBuffer);
+
+		// const fileLike: Uploadable = {
+		// 	size: 1234,
+		// 	// lastModified: Date.now(),
+		// 	// name: 'test',
+		// 	type: 'audio/mpeg',
+		// 	text: async () =>
+		// 		'This is a sample text representation of the file',
+		// 	slice: (start?: number, end?: number) => {
+		// 		// Return a new BlobLike object with the sliced data
+		// 		return {
+		// 			size: end ? end - (start || 0) : 1234,
+		// 			type: 'audio/mpeg',
+		// 			// lastModified: Date.now(),
+		// 			// name: '',
+		// 			text: async () => 'This is the sliced text representation',
+		// 			slice: (start, end) => fileLike,
+		// 		};
+		// 	},
+		// };
+
+		try {
+			// Use the temporary file path with OpenAI
+			let transcription = await openai.audio.transcriptions.create({
+				file: fs.createReadStream(tmpFilePath),
+				model: 'whisper-1',
+				response_format: 'text',
+			});
+
+			console.log(transcription);
+
+			xata.db.thoughts.create({
+				type: 0,
+				text: transcription,
+				audio_file: [XataFile.fromUint8Array(tempFileBuffer)]
+			})
+
+			revalidatePath('/dashboard', 'page')
+
+			return NextResponse.json({ transcription: transcription });
+		} finally {
+			// Clean up: Delete the temporary file
+			fs.unlinkSync(tmpFilePath);
+		}
 	} catch (error: any) {
-	  console.error('Error receiving file', error);
-	  return NextResponse.json({ error: error.message }, { status: 500 });
+		console.error('Error receiving file', error);
+		return NextResponse.json({ error: error.message }, { status: 500 });
 	}
-  }
+}
