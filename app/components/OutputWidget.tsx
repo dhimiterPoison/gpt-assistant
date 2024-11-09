@@ -93,7 +93,7 @@ const OutputWidget = async () => {
 				<CardTitle>Output</CardTitle>
 				<CardDescription className='flex flex-col gap-2'>
 					{thoughts.map(thought => {
-						return <div className='font-normal text-lg text-slate-100 flex gap-2 items-center p-2 bg-green-800 shadow-lg'>
+						return <div key={thought.id} className='font-normal text-lg text-slate-100 flex gap-2 items-center p-2 bg-green-800 shadow-lg'>
 							<CloudUpload className='w-4 h-4 shrink-0'/>
 							<span>{thought.text}</span>
 						</div>
