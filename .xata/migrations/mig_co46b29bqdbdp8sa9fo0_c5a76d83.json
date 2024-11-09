@@ -1,0 +1,13 @@
+{
+  "id": "mig_co46b29bqdbdp8sa9fo0",
+  "parentID": "mig_co46avhbqdbdp8sa9fn0",
+  "checksum": "1:c5a76d83c83bf4c9343f3b041ccf79a88ba37a7929fcab1fa253ee7bd470228c",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "categories",
+        "oldName": "category"
+      }
+    }
+  ]
+}

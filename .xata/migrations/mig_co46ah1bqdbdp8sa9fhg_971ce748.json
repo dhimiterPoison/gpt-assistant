@@ -1,0 +1,18 @@
+{
+  "id": "mig_co46ah1bqdbdp8sa9fhg",
+  "parentID": "mig_co46a81bqdbdp8sa9fgg",
+  "checksum": "1:971ce748d3def342730a5e1e3b9050bb15873a01d1eb52a0a39a5475b72f8cf5",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "recurrent",
+          "type": "bool",
+          "notNull": true,
+          "defaultValue": "false"
+        },
+        "table": "expense"
+      }
+    }
+  ]
+}

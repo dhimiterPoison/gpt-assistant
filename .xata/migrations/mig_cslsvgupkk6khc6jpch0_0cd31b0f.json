@@ -1,0 +1,16 @@
+{
+  "id": "mig_cslsvgupkk6khc6jpch0",
+  "parentID": "mig_cslsv7upkk6khc6jpcg0",
+  "checksum": "1:0cd31b0f1855b3ec51d409492849de45b71d9be667577ab7d3abe3c0d8005d1e",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "text",
+          "type": "text"
+        },
+        "table": "thoughs"
+      }
+    }
+  ]
+}

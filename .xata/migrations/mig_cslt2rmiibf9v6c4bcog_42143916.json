@@ -1,0 +1,13 @@
+{
+  "id": "mig_cslt2rmiibf9v6c4bcog",
+  "parentID": "mig_cslt2k3mnhj16d8vuavg",
+  "checksum": "1:421439161bef248e7fb2ebadd39ffa4eb8e81b0ca68ca430e33343f1e7c9dddd",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "thoughts",
+        "oldName": "thoughs"
+      }
+    }
+  ]
+}

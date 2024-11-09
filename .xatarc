@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://dhimiterPoison-s-workspace-vm8rbe.eu-west-1.xata.sh/db/self-glance",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mig_co46a81bqdbdp8sa9fgg",
+  "parentID": "mig_co4698ig71l8r6rp3h9g",
+  "checksum": "1:9db75073f4f3d958688b88d2a50099ee5ddc4a7af08333af671aaeedab9cb77f",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "type",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "expense"
+        },
+        "table": "expense"
+      }
+    }
+  ]
+}

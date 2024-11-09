@@ -1,0 +1,11 @@
+{
+  "id": "mig_co4698ig71l8r6rp3h9g",
+  "checksum": "1:84357ce2457723a710e885141c47bd1a5f712c86f025569385bef4c687dfe2b0",
+  "operations": [
+    {
+      "addTable": {
+        "table": "expense"
+      }
+    }
+  ]
+}

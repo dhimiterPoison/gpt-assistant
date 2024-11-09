@@ -1,0 +1,18 @@
+{
+  "id": "mig_co46bqpbqdbdp8sa9fs0",
+  "parentID": "mig_co46bgig71l8r6rp3hdg",
+  "checksum": "1:3826429c359f1238a5165aae1452e8f1cd644eba5623a7c8f9a924677e39d409",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "name",
+          "type": "string",
+          "notNull": true,
+          "defaultValue": "Categoria 1"
+        },
+        "table": "categories"
+      }
+    }
+  ]
+}

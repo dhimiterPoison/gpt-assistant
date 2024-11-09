@@ -1,0 +1,19 @@
+{
+  "id": "mig_co46cgpbqdbdp8sa9fu0",
+  "parentID": "mig_co46c6pbqdbdp8sa9ft0",
+  "checksum": "1:3620aad4ca8489f337f63a895f990ccdbd50edc3d0ebd356759461453ab26aea",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "category_id",
+          "type": "link",
+          "link": {
+            "table": "categories"
+          }
+        },
+        "table": "expenses"
+      }
+    }
+  ]
+}

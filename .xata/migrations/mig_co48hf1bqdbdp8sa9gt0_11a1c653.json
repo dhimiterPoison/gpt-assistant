@@ -1,0 +1,75 @@
+{
+  "id": "mig_co48hf1bqdbdp8sa9gt0",
+  "parentID": "mig_co46cgpbqdbdp8sa9fu0",
+  "checksum": "1:11a1c653048d91b16fa44d267f691e58a58a52818d2f80edd97aa7a6a018943d",
+  "operations": [
+    {
+      "addTable": {
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Date",
+          "type": "datetime"
+        },
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "InterestDate",
+          "type": "datetime"
+        },
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Amount",
+          "type": "float"
+        },
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Account",
+          "type": "string"
+        },
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Counterparty",
+          "type": "string"
+        },
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Name",
+          "type": "string"
+        },
+        "table": "transactions"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Description",
+          "type": "string"
+        },
+        "table": "transactions"
+      }
+    }
+  ]
+}

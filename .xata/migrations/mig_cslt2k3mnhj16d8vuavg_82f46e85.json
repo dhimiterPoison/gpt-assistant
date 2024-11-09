@@ -1,0 +1,12 @@
+{
+  "id": "mig_cslt2k3mnhj16d8vuavg",
+  "parentID": "mig_cslt0obmnhj16d8vuaug",
+  "checksum": "1:82f46e8543bf83b67e211dfd372c10dfccf69e5010a283056d7dec5bb407568b",
+  "operations": [
+    {
+      "removeTable": {
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    }
+  ]
+}

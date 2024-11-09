@@ -1,0 +1,16 @@
+{
+  "id": "mig_cslt0obmnhj16d8vuaug",
+  "parentID": "mig_cslsvvepkk6khc6jpcmg",
+  "checksum": "1:31aa49fa3a089c46b72a7abdc2e25c00a00b6abb6af64d3fd78c707f048c4999",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "audio_file",
+          "type": "file[]"
+        },
+        "table": "thoughs"
+      }
+    }
+  ]
+}

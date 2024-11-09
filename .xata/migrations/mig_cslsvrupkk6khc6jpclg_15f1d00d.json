@@ -1,0 +1,12 @@
+{
+  "id": "mig_cslsvrupkk6khc6jpclg",
+  "parentID": "mig_cslsvlupkk6khc6jpci0",
+  "checksum": "1:15f1d00d083bc7f53d20dc6f6f2584762976ecd72fa867e44bbd4617b6c7e78f",
+  "operations": [
+    {
+      "addTable": {
+        "table": "thought_types"
+      }
+    }
+  ]
+}

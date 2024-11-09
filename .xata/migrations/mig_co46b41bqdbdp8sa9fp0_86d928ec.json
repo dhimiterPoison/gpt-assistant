@@ -1,0 +1,13 @@
+{
+  "id": "mig_co46b41bqdbdp8sa9fp0",
+  "parentID": "mig_co46b29bqdbdp8sa9fo0",
+  "checksum": "1:86d928ecafef0d6c3e0a51e81e23a4808a4972972e561a43a1e4b84e625b9a94",
+  "operations": [
+    {
+      "renameTable": {
+        "newName": "expenses",
+        "oldName": "expense"
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "mig_co49mu1bqdbdp8sa9hh0",
+  "parentID": "mig_co49et9bqdbdp8sa9hag",
+  "checksum": "1:504a843b21e10e63be4c242af57576041b43838437e09b193dd2c7fe754ab547",
+  "operations": [
+    {
+      "addTable": {
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Date",
+          "type": "datetime"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "InterestDate",
+          "type": "datetime"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Amount",
+          "type": "string"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Account",
+          "type": "string"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Counterparty",
+          "type": "string"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Name",
+          "type": "string"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    },
+    {
+      "addColumn": {
+        "column": {
+          "name": "Description",
+          "type": "string"
+        },
+        "table": "2024-03-30_22-41-27_bunq-statement"
+      }
+    }
+  ]
+}

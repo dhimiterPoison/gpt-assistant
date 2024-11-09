@@ -1,0 +1,14 @@
+{
+  "id": "mig_co46bdpbqdbdp8sa9fq0",
+  "parentID": "mig_co46bcag71l8r6rp3hcg",
+  "checksum": "1:2114bd3ac0df13ce458a861c832787a176201e6cbe072335b335dbefcb51ee70",
+  "operations": [
+    {
+      "renameColumn": {
+        "newName": "name",
+        "oldName": "Name",
+        "table": "categories"
+      }
+    }
+  ]
+}

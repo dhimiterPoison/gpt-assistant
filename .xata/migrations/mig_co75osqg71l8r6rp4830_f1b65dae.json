@@ -1,0 +1,18 @@
+{
+  "id": "mig_co75osqg71l8r6rp4830",
+  "parentID": "mig_co75699bqdbdp8saa7d0",
+  "checksum": "1:f1b65daeeae27517f025d8aacf3e31fd62355b243edab44653fc732504e0b102",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "effective_date",
+          "type": "datetime",
+          "notNull": true,
+          "defaultValue": "now"
+        },
+        "table": "transactions"
+      }
+    }
+  ]
+}
