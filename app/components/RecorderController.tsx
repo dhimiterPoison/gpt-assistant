@@ -111,12 +111,12 @@ const RecorderController = () => {
 				<div id='audio-container' className=''>
 					{/* <div>fs</div> */}
 				</div>
-				<Button
+				{recorderControls.recordingBlob ? <Button
 					className='rounded-full'
 					onClick={transcribeRecordedAudio}
 				>
 					Send
-				</Button>
+				</Button> : null}
 			</div>
 			<div className='flex items-center justify-center p-2'>
 				<AudioRecorder
@@ -128,11 +128,11 @@ const RecorderController = () => {
 					}}
 				/>
 			</div>
-			<div className='flex'>
+			{recorderControls.isRecording ? <div className='flex'>
 				<button onClick={recorderControls.stopRecording}>
 					Stop recording
 				</button>
-			</div>
+			</div> : null}
 		</div>
 	);
 };

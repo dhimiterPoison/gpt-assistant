@@ -6,13 +6,13 @@ import AgendaWidget from './AgendaWidget';
 
 const Dashboard = () => {
   return (
-	<main className='h-full grid grid-cols-2 md:grid-cols-2 grid-rows-4 md:grid-rows-2 overflow-auto'>
-			<section className='col-span-1 row-span-3 flex flex-col p-6 gap-6'>
-				<TextualChat></TextualChat>
+	<main className='h-full grid grid-cols-1 md:grid-cols-2 grid-rows-4 md:grid-rows-2 overflow-auto'>
+			{/* <section className='col-span-1 row-span-3 flex flex-col p-6 gap-6'> */}
+				{/* <TextualChat></TextualChat> */}
 				{/* <FinancesWidget></FinancesWidget> */}
-			</section>
+			{/* </section> */}
 			{/* output should be expanded only when there is something to show */}
-			<section className='col-start-2 row-span-3 p-6 ' id='output'>
+			<section className='md:col-start-2 row-span-4 p-6 ' id='output'>
 				<OutputWidget></OutputWidget>
 			</section>
 			{/* <section
