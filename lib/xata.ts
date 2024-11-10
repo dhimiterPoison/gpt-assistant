@@ -8,23 +8,6 @@ import type {
 
 const tables = [
   {
-    name: "transactions",
-    columns: [
-      { name: "type", type: "string", notNull: true, defaultValue: "expense" },
-      { name: "recurrent", type: "bool", notNull: true, defaultValue: "false" },
-      { name: "amount", type: "float", notNull: true, defaultValue: "0" },
-      { name: "currency", type: "string", notNull: true, defaultValue: "€" },
-      { name: "category_id", type: "link", link: { table: "categories" } },
-      {
-        name: "effective_date",
-        type: "datetime",
-        notNull: true,
-        defaultValue: "now",
-      },
-      { name: "description", type: "text" },
-    ],
-  },
-  {
     name: "categories",
     columns: [
       {
@@ -56,10 +39,6 @@ const tables = [
 
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
-
-export type Transactions = InferredTypes["transactions"];
-export type TransactionsRecord = Transactions & XataRecord;
-
 export type Categories = InferredTypes["categories"];
 export type CategoriesRecord = Categories & XataRecord;
 
@@ -70,7 +49,6 @@ export type ThoughtTypes = InferredTypes["thought_types"];
 export type ThoughtTypesRecord = ThoughtTypes & XataRecord;
 
 export type DatabaseSchema = {
-  transactions: TransactionsRecord;
   categories: CategoriesRecord;
   thoughts: ThoughtsRecord;
   thought_types: ThoughtTypesRecord;
