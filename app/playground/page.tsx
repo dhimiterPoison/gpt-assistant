@@ -10,13 +10,13 @@ const xata = getXataClient();
 const PlaygroundPage = async () => {
 	const categories = await xata.db.categories.getMany();
 
-	let transactions = await xata.db.transactions
-		.select(['*', 'category_id.*'])
-		.getMany();
+	// let transactions = await xata.db.transactions
+	// 	.select(['*', 'category_id.*'])
+	// 	.getMany();
 
-	transactions.sort(
-		(a, b) => a.effective_date.getTime() - b.effective_date.getTime()
-	);
+	// transactions.sort(
+	// 	(a, b) => a.effective_date.getTime() - b.effective_date.getTime()
+	// );
 
 	return (
 		<div className='flex h-full w-full flex-col gap-8 lg:flex-row'>
@@ -29,7 +29,7 @@ const PlaygroundPage = async () => {
 
 						is this better than a button on top of the table that says "add transaction"?
 					*/}
-					{transactions.map((transaction) => (
+					{/* {transactions.map((transaction) => (
 						<div
 							key={transaction.id}
 							className={`grid grid-cols-[auto_1fr_1.5fr_2fr_100px] items-center gap-2 p-1`}
@@ -49,7 +49,7 @@ const PlaygroundPage = async () => {
 								<span>{transaction.amount}</span>
 							</div>
 						</div>
-					))}
+					))} */}
 				</div>
 			</div>
 			<div className='flex h-full flex-col items-start justify-start p-4'>
